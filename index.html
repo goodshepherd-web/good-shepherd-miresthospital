@@ -59,39 +59,173 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
-            height: 80px;
+            height: 70px;
         }
 
-        /* Hamburger Menu Button */
-        .hamburger {
+        /* Menu Icon Button */
+        .menu-icon {
             display: none;
-            flex-direction: column;
-            gap: 5px;
             background: none;
             border: none;
             cursor: pointer;
             padding: 8px;
             z-index: 1003;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 3px;
-            background: var(--dark);
-            border-radius: 2px;
+            font-size: 1.8rem;
+            color: var(--primary);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
             transition: all 0.3s ease;
         }
 
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
+        .menu-icon:hover {
+            background: var(--light);
         }
 
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
+        .menu-icon:active {
+            transform: scale(0.95);
         }
 
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
+        /* Dropdown Menu Container */
+        .menu-dropdown {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            min-width: 250px;
+            z-index: 1002;
+            max-height: calc(100vh - 80px);
+            overflow-y: auto;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .menu-dropdown.active {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Menu Items */
+        .menu-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f3f4f6;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item:hover {
+            background: var(--light);
+            color: var(--primary);
+            padding-left: 24px;
+        }
+
+        .menu-item.active {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Submenu */
+        .submenu {
+            display: none;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 0;
+            margin: 0;
+        }
+
+        .submenu.active {
+            display: block;
+        }
+
+        .submenu-item {
+            display: block;
+            padding: 10px 20px 10px 40px;
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .submenu-item:hover {
+            background: white;
+            color: var(--primary);
+            padding-left: 44px;
+        }
+
+        /* CTA Button in Menu */
+        .menu-cta {
+            display: block;
+            padding: 12px 20px;
+            margin: 12px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-cta:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        /* Close button in menu dropdown */
+        .menu-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-close:hover {
+            color: var(--dark);
         }
 
         .logo-section {
@@ -100,6 +234,7 @@
             gap: 12px;
             text-decoration: none;
             color: var(--dark);
+            flex: 1;
         }
 
         .logo-image {
@@ -122,23 +257,19 @@
             font-weight: 800;
             color: var(--primary);
             line-height: 1.1;
+            margin: 0;
         }
 
         .hospital-name p {
             font-size: 0.9rem;
             color: var(--secondary);
             font-weight: 700;
+            margin: 0;
         }
 
-        /* Navigation Menu */
+        /* Hide old nav on all screens */
         nav {
-            display: flex;
-            gap: 8px;
-            list-style: none;
-        }
-
-        .nav-item {
-            position: relative;
+            display: none;
         }
 
         .nav-link {
@@ -793,33 +924,25 @@
         @media (max-width: 768px) {
             /* TABLET & SMALLER */
             header {
-                height: auto;
-                flex-direction: row;
-                gap: 12px;
-                padding: 12px 15px;
-                justify-content: space-between;
+                height: 70px;
+                padding: 0 15px;
             }
 
             .logo-section {
-                justify-content: center;
-                flex-shrink: 0;
+                gap: 8px;
             }
 
-            nav {
-                flex-direction: column;
-                width: 100%;
-                gap: 6px;
+            .hospital-name h1 {
+                font-size: 1.1rem;
             }
 
-            .nav-link {
-                padding: 10px 12px;
-                font-size: 0.9rem;
-                text-align: center;
+            .hospital-name p {
+                font-size: 0.75rem;
             }
 
-            .cta-button {
-                padding: 12px 16px;
-                width: 100%;
+            .menu-icon {
+                display: flex !important;
+                font-size: 1.6rem;
             }
 
             .hero {
@@ -855,17 +978,14 @@
                 font-size: 1rem;
             }
 
-            /* Stats section - stack vertically */
             .stat-counter {
                 font-size: 2.5rem;
             }
 
-            /* Cards - full width on mobile */
             .access-card, .service-card, .why-item, .commitment-item {
                 width: 100%;
             }
 
-            /* Disable some animations on slower devices */
             .float, .floatDelay1, .floatDelay2 {
                 animation: none !important;
             }
@@ -879,7 +999,6 @@
         @media (max-width: 480px) {
             /* SMALL ANDROID PHONES */
             
-            /* Viewport fixes */
             * {
                 -webkit-tap-highlight-color: transparent;
             }
@@ -890,21 +1009,13 @@
                 overflow-x: hidden;
             }
 
-            /* Show hamburger, hide regular nav */
-            .hamburger {
-                display: flex;
-            }
-
             header {
-                padding: 10px 12px;
-                gap: 8px;
-                height: auto;
-                flex-wrap: nowrap;
+                padding: 0 12px;
+                height: 60px;
             }
 
             .logo-section {
-                gap: 8px;
-                flex-shrink: 0;
+                gap: 6px;
                 min-width: fit-content;
             }
 
@@ -914,82 +1025,43 @@
             }
 
             .hospital-name h1 {
-                font-size: 1rem;
+                font-size: 0.95rem;
                 line-height: 1;
             }
 
             .hospital-name p {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
 
-            /* Hide nav by default on mobile, show as dropdown */
-            nav {
-                display: none;
-                position: absolute;
+            .menu-icon {
+                display: flex !important;
+                font-size: 1.4rem;
+                width: 40px;
+                height: 40px;
+                padding: 6px;
+            }
+
+            .menu-dropdown {
                 top: 60px;
-                left: 0;
-                right: 0;
-                background: white;
-                border-bottom: 1px solid #e5e7eb;
-                flex-direction: column;
-                gap: 0;
-                width: 100%;
-                z-index: 1002;
-                max-height: calc(100vh - 60px);
-                overflow-y: auto;
-                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                right: 10px;
+                min-width: 200px;
+                max-width: calc(100vw - 20px);
             }
 
-            /* Show nav when active */
-            nav.active {
-                display: flex;
-            }
-
-            .nav-item {
-                width: 100%;
-                border-bottom: 1px solid #f0f0f0;
-            }
-
-            .nav-link {
-                padding: 12px 16px;
+            .menu-item {
+                padding: 10px 16px;
                 font-size: 0.9rem;
-                word-break: break-word;
-                white-space: normal;
-                display: block;
-                width: 100%;
-                text-align: left;
-                border-radius: 0;
             }
 
-            .cta-button {
-                padding: 12px 16px;
+            .submenu-item {
+                padding: 8px 16px 8px 32px;
                 font-size: 0.85rem;
-                width: 100%;
-                border-radius: 0;
-                margin: 0;
             }
 
-            .dropdown-menu {
-                display: none;
-                position: relative;
-                top: 0;
-                left: 0;
-                background: #f9f9f9;
-                flex-direction: column;
-                gap: 0;
-                min-width: auto;
-                box-shadow: none;
-                border: none;
-                margin-top: 0;
-            }
-
-            .dropdown-menu.active {
-                display: flex;
-            }
-
-            .dropdown-item {
-                padding: 10px 16px 10px 32px;
-                font-size: 0.85rem;
+            .menu-cta {
+                padding: 10px 16px;
+                margin: 8px;
+                font-size: 0.9rem;
             }
 
             /* Hero Section */
@@ -1097,7 +1169,6 @@
                 transform: translateY(-4px) !important;
             }
 
-            /* Service Cards - disable floating animation */
             .service-card {
                 animation: fadeInUp 0.7s ease-out !important;
             }
@@ -1163,7 +1234,6 @@
                 margin-bottom: 8px;
             }
 
-            /* Disable heavy animations on mobile */
             @media (prefers-reduced-motion: reduce) {
                 * {
                     animation: none !important;
@@ -1171,7 +1241,6 @@
                 }
             }
 
-            /* Performance optimizations */
             .float, .floatDelay1, .floatDelay2, 
             .popIn, .slideInLeft, .slideInRight, 
             .fadeInUp, .scaleIn {
@@ -1184,7 +1253,8 @@
         @media (max-width: 360px) {
             /* EXTRA SMALL PHONES */
             header {
-                padding: 8px 10px;
+                padding: 0 10px;
+                height: 55px;
             }
 
             .logo-image {
@@ -1200,17 +1270,10 @@
                 font-size: 0.6rem;
             }
 
-            .hamburger {
-                padding: 6px;
-            }
-
-            .hamburger span {
-                width: 20px;
-                height: 2px;
-            }
-
-            nav {
-                top: 50px;
+            .menu-icon {
+                font-size: 1.2rem;
+                width: 36px;
+                height: 36px;
             }
 
             .hero h1 {
@@ -1243,7 +1306,6 @@
                 min-height: 40px;
             }
 
-            /* Single column for everything */
             .access-card, .service-card, .why-item,
             [style*="display: grid"] {
                 grid-template-columns: 1fr !important;
@@ -1264,50 +1326,41 @@
                     <p>Mirest Hospital</p>
                 </div>
             </a>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav id="mobileNav">
-                <div class="nav-item">
-                    <a href="index.html" class="nav-link active">Home</a>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link">About ▼</a>
-                    <div class="dropdown-menu">
-                        <a href="about.html" class="dropdown-item">Our Story</a>
-                        <a href="about.html#mirest" class="dropdown-item">Mirest Foundation</a>
-                        <a href="about.html#mission" class="dropdown-item">Our Mission</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link">Services ▼</a>
-                    <div class="dropdown-menu">
-                        <a href="services.html" class="dropdown-item">All Services</a>
-                        <a href="services.html#pediatrics" class="dropdown-item">Pediatrics</a>
-                        <a href="services.html#maternity" class="dropdown-item">Maternity</a>
-                        <a href="services.html#emergency" class="dropdown-item">Emergency</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link">Get Involved ▼</a>
-                    <div class="dropdown-menu">
-                        <a href="support.html" class="dropdown-item">Support Patients</a>
-                        <a href="professionals.html" class="dropdown-item">Professional Partners</a>
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <a href="team.html" class="nav-link">Team</a>
-                </div>
-                <div class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </div>
-                <div class="nav-item">
-                    <a href="contact.html#book" class="cta-button">Book Appointment</a>
-                </div>
-            </nav>
+            <button class="menu-icon" id="menuIcon" aria-label="Toggle navigation menu">☰</button>
         </header>
+        
+        <!-- Dropdown Menu -->
+        <div class="menu-dropdown" id="menuDropdown">
+            <button class="menu-close" id="menuClose">✕</button>
+            
+            <a href="index.html" class="menu-item">Home</a>
+            
+            <button class="menu-item" id="aboutToggle">About ▼</button>
+            <div class="submenu" id="aboutSubmenu">
+                <a href="about.html" class="submenu-item">Our Story</a>
+                <a href="about.html#mirest" class="submenu-item">Mirest Foundation</a>
+                <a href="about.html#mission" class="submenu-item">Our Mission</a>
+            </div>
+            
+            <button class="menu-item" id="servicesToggle">Services ▼</button>
+            <div class="submenu" id="servicesSubmenu">
+                <a href="services.html" class="submenu-item">All Services</a>
+                <a href="services.html#pediatrics" class="submenu-item">Pediatrics</a>
+                <a href="services.html#maternity" class="submenu-item">Maternity</a>
+                <a href="services.html#emergency" class="submenu-item">Emergency</a>
+            </div>
+            
+            <button class="menu-item" id="involvedToggle">Get Involved ▼</button>
+            <div class="submenu" id="involvedSubmenu">
+                <a href="support.html" class="submenu-item">Support Patients</a>
+                <a href="professionals.html" class="submenu-item">Professional Partners</a>
+            </div>
+            
+            <a href="team.html" class="menu-item">Team</a>
+            <a href="contact.html" class="menu-item">Contact</a>
+            
+            <a href="contact.html#book" class="menu-cta">Book Appointment</a>
+        </div>
     </div>
 
     <!-- Hero Section -->
@@ -1693,45 +1746,66 @@
         staggerElements('.why-item', 0.1);
         staggerElements('.social-link', 0.1);
 
-        // Mobile hamburger menu toggle
-        const hamburger = document.getElementById('hamburger');
-        const mobileNav = document.getElementById('mobileNav');
+        // Mobile menu dropdown toggle
+        const menuIcon = document.getElementById('menuIcon');
+        const menuDropdown = document.getElementById('menuDropdown');
+        const menuClose = document.getElementById('menuClose');
         
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileNav.classList.toggle('active');
+        // Toggle menu open/close
+        menuIcon.addEventListener('click', () => {
+            menuDropdown.classList.toggle('active');
         });
-
-        // Close menu when a link is clicked
-        const navLinks = mobileNav.querySelectorAll('a');
-        navLinks.forEach(link => {
+        
+        menuClose.addEventListener('click', () => {
+            menuDropdown.classList.remove('active');
+        });
+        
+        // Close menu when clicking on a link
+        const menuLinks = menuDropdown.querySelectorAll('a.menu-item, a.submenu-item');
+        menuLinks.forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileNav.classList.remove('active');
+                menuDropdown.classList.remove('active');
             });
         });
-
+        
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('header')) {
-                hamburger.classList.remove('active');
-                mobileNav.classList.remove('active');
+            if (!e.target.closest('header') && !e.target.closest('.menu-dropdown')) {
+                menuDropdown.classList.remove('active');
             }
         });
-
-        // Handle dropdown menus on mobile
-        const dropdowns = mobileNav.querySelectorAll('.dropdown');
-        dropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('.nav-link');
-            const menu = dropdown.querySelector('.dropdown-menu');
-            
-            if (link && menu) {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    menu.classList.toggle('active');
-                });
-            }
-        });
+        
+        // Submenu toggles
+        const aboutToggle = document.getElementById('aboutToggle');
+        const aboutSubmenu = document.getElementById('aboutSubmenu');
+        const servicesToggle = document.getElementById('servicesToggle');
+        const servicesSubmenu = document.getElementById('servicesSubmenu');
+        const involvedToggle = document.getElementById('involvedToggle');
+        const involvedSubmenu = document.getElementById('involvedSubmenu');
+        
+        if (aboutToggle && aboutSubmenu) {
+            aboutToggle.addEventListener('click', () => {
+                aboutSubmenu.classList.toggle('active');
+                servicesSubmenu.classList.remove('active');
+                involvedSubmenu.classList.remove('active');
+            });
+        }
+        
+        if (servicesToggle && servicesSubmenu) {
+            servicesToggle.addEventListener('click', () => {
+                servicesSubmenu.classList.toggle('active');
+                aboutSubmenu.classList.remove('active');
+                involvedSubmenu.classList.remove('active');
+            });
+        }
+        
+        if (involvedToggle && involvedSubmenu) {
+            involvedToggle.addEventListener('click', () => {
+                involvedSubmenu.classList.toggle('active');
+                aboutSubmenu.classList.remove('active');
+                servicesSubmenu.classList.remove('active');
+            });
+        }
 
     </script>
 </body>

@@ -390,6 +390,48 @@
                     <p>Mirest Hospital</p>
                 </div>
             </a>
+            <button class="menu-icon" id="menuIcon" aria-label="Toggle navigation menu">☰</button>
+        </header>
+        
+        <!-- Dropdown Menu -->
+        <div class="menu-dropdown" id="menuDropdown">
+            <button class="menu-close" id="menuClose">✕</button>
+            
+            <a href="index.html" class="menu-item">Home</a>
+            
+            <button class="menu-item" id="aboutToggle">About ▼</button>
+            <div class="submenu" id="aboutSubmenu">
+                <a href="about.html" class="submenu-item">Our Story</a>
+                <a href="about.html#mirest" class="submenu-item">Mirest Foundation</a>
+                <a href="about.html#mission" class="submenu-item">Our Mission</a>
+            </div>
+            
+            <button class="menu-item" id="servicesToggle">Services ▼</button>
+            <div class="submenu" id="servicesSubmenu">
+                <a href="services.html" class="submenu-item">All Services</a>
+                <a href="services.html#pediatrics" class="submenu-item">Pediatrics</a>
+                <a href="services.html#maternity" class="submenu-item">Maternity</a>
+                <a href="services.html#emergency" class="submenu-item">Emergency</a>
+            </div>
+            
+            <button class="menu-item" id="involvedToggle">Get Involved ▼</button>
+            <div class="submenu" id="involvedSubmenu">
+                <a href="support.html" class="submenu-item">Support Patients</a>
+                <a href="professionals.html" class="submenu-item">Professional Partners</a>
+            </div>
+            
+            <a href="team.html" class="menu-item">Team</a>
+            <a href="contact.html" class="menu-item">Contact</a>
+            
+            <a href="contact.html#book" class="menu-cta">Book Appointment</a>
+        </div>
+    </div>
+
+                <div class="hospital-name">
+                    <h1>Good Shepherd</h1>
+                    <p>Mirest Hospital</p>
+                </div>
+            </a>
             <nav>
                 <div class="nav-item">
                     <a href="index.html" class="nav-link">Home</a>
@@ -616,6 +658,68 @@
             });
         }
 
+        // Mobile menu dropdown toggle
+        const menuIcon = document.getElementById('menuIcon');
+        const menuDropdown = document.getElementById('menuDropdown');
+        const menuClose = document.getElementById('menuClose');
+        
+        // Toggle menu open/close
+        menuIcon.addEventListener('click', () => {
+            menuDropdown.classList.toggle('active');
+        });
+        
+        menuClose.addEventListener('click', () => {
+            menuDropdown.classList.remove('active');
+        });
+        
+        // Close menu when clicking on a link
+        const menuLinks = menuDropdown.querySelectorAll('a.menu-item, a.submenu-item');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuDropdown.classList.remove('active');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header') && !e.target.closest('.menu-dropdown')) {
+                menuDropdown.classList.remove('active');
+            }
+        });
+        
+        // Submenu toggles
+        const aboutToggle = document.getElementById('aboutToggle');
+        const aboutSubmenu = document.getElementById('aboutSubmenu');
+        const servicesToggle = document.getElementById('servicesToggle');
+        const servicesSubmenu = document.getElementById('servicesSubmenu');
+        const involvedToggle = document.getElementById('involvedToggle');
+        const involvedSubmenu = document.getElementById('involvedSubmenu');
+        
+        if (aboutToggle && aboutSubmenu) {
+            aboutToggle.addEventListener('click', () => {
+                aboutSubmenu.classList.toggle('active');
+                servicesSubmenu.classList.remove('active');
+                involvedSubmenu.classList.remove('active');
+            });
+        }
+        
+        if (servicesToggle && servicesSubmenu) {
+            servicesToggle.addEventListener('click', () => {
+                servicesSubmenu.classList.toggle('active');
+                aboutSubmenu.classList.remove('active');
+                involvedSubmenu.classList.remove('active');
+            });
+        }
+        
+        if (involvedToggle && involvedSubmenu) {
+            involvedToggle.addEventListener('click', () => {
+                involvedSubmenu.classList.toggle('active');
+                aboutSubmenu.classList.remove('active');
+                servicesSubmenu.classList.remove('active');
+            });
+        }
+
     </script>
+
 </body>
 </html>

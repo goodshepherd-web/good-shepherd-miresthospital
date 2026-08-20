@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2563eb">
     <title>About Us - Good Shepherd Mirest Hospital</title>
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -331,25 +334,208 @@
             header {
                 height: auto;
                 flex-direction: column;
-                gap: 16px;
-                padding: 16px 20px;
+                gap: 12px;
+                padding: 12px 15px;
             }
 
             nav {
                 flex-direction: column;
                 width: 100%;
+                gap: 6px;
+            }
+
+            .nav-link {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+                text-align: center;
             }
 
             .section {
-                padding: 40px 20px;
+                padding: 30px 15px;
             }
 
             .story-container {
-                padding: 24px;
+                padding: 20px;
             }
 
             .credentials {
                 grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            * {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+
+            header {
+                padding: 10px 10px;
+                gap: 8px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .logo-section {
+                gap: 8px;
+            }
+
+            .logo-image {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hospital-name h1 {
+                font-size: 1.1rem;
+                line-height: 1;
+            }
+
+            .hospital-name p {
+                font-size: 0.75rem;
+            }
+
+            nav {
+                flex-direction: row;
+                width: 100%;
+                gap: 4px;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            .nav-item {
+                flex: 1;
+                min-width: 50px;
+            }
+
+            .nav-link {
+                padding: 8px 6px;
+                font-size: 0.75rem;
+                word-break: break-word;
+            }
+
+            .cta-button {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+                min-height: 40px;
+            }
+
+            .hero {
+                padding: 20px 12px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+
+            .section {
+                padding: 20px 12px;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .story-container {
+                padding: 15px;
+            }
+
+            .credentials {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+
+            .credential-item {
+                padding: 15px !important;
+            }
+
+            .credential-item h4 {
+                font-size: 0.95rem;
+            }
+
+            .credential-item p {
+                font-size: 0.85rem;
+            }
+
+            .mirest-section {
+                padding: 15px;
+            }
+
+            [style*="display: grid"]:has(.mirest-card) {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+
+            .social-links {
+                padding: 20px 10px;
+                gap: 12px;
+            }
+
+            .social-link {
+                font-size: 1.5rem;
+                min-width: 44px;
+                height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            footer {
+                padding: 20px 10px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+                text-align: center;
+            }
+
+            .footer-section h4 {
+                font-size: 0.9rem;
+            }
+
+            .footer-section a {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            header {
+                padding: 8px 8px;
+            }
+
+            .logo-image {
+                width: 35px;
+                height: 35px;
+            }
+
+            .hospital-name h1 {
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .credentials {
+                grid-template-columns: 1fr !important;
             }
         }
     </style>

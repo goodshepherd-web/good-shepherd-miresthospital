@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Good Shepherd Mirest Hospital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetic Neue', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--light);
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: url('logo.png') center/contain no-repeat;
+            opacity: 0.06;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 80px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .hospital-name h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+
+        .hospital-name p {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            padding: 12px 16px;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            min-width: 200px;
+            margin-top: 4px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 12px 16px;
+            border: none;
+            background: none;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background: var(--light);
+            color: var(--primary);
+            padding-left: 20px;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            text-align: center;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-card h3 {
+            color: var(--dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .contact-card p {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        .contact-card a {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        .appointment-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 12px;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--secondary), #059669);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+        }
+
+        .map-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            height: 400px;
+            margin-top: 40px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        footer {
+            background: var(--dark);
+            color: #f3f4f6;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 2rem;
+            max-width: 1400px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                flex-direction: column;
+                gap: 16px;
+                padding: 16px 20px;
+            }
+
+            nav {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+
+            .appointment-section {
+                padding: 24px;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="sticky-header">
+        <header>
+            <a href="index.html" class="logo-section">
+                <div class="logo-image">
+                    <img src="logo.png" alt="Good Shepherd Mirest Hospital Logo">
+                </div>
+                <div class="hospital-name">
+                    <h1>Good Shepherd</h1>
+                    <p>Mirest Hospital</p>
+                </div>
+            </a>
+            <nav>
+                <div class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">About ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-item">Our Story</a>
+                        <a href="about.html#mirest" class="dropdown-item">Mirest Foundation</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">Services ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="services.html" class="dropdown-item">All Services</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">Get Involved ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="support.html" class="dropdown-item">Support Patients</a>
+                        <a href="professionals.html" class="dropdown-item">Professional Partners</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="team.html" class="nav-link">Team</a>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html#book" class="cta-button">Book Appointment</a>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <section style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(16, 185, 129, 0.08)); padding: 60px 20px; text-align: center;">
+        <h1 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 12px;">Get in Touch</h1>
+        <p style="font-size: 1.1rem; color: #6b7280;">We're here to help. Contact us or book an appointment.</p>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="section">
+        <h2 class="section-title">Contact Information</h2>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h3>Location</h3>
+                <p>75 Orlu Road, Ekwulobia, Aguata<br>Anambra State, Nigeria</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">☎️</div>
+                <h3>Phone</h3>
+                <p>+234 913 692 9445</p>
+                <p style="font-size: 0.85rem; margin-top: 8px; color: #9ca3af;">24/7 Available</p>
+                <a href="tel:+2349136929445">Call Now</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">💬</div>
+                <h3>WhatsApp</h3>
+                <p>Quick messaging & consultations</p>
+                <a href="https://wa.me/2349136929445">Message on WhatsApp</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3>Email</h3>
+                <p>goodshepherdchospital@gmail.com</p>
+                <a href="mailto:goodshepherdchospital@gmail.com">Send Email</a>
+            </div>
+        </div>
+
+        <!-- Location Map -->
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.234567!2d7.082!3d6.154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1043b5e8e8e8e8e9%3A0x75OrluRoadEkwulobia!2sGood%20Shepherd%20Mirest%20Hospital%2C%2075%20Orlu%20Road%2C%20Ekwulobia%2C%20Aguata%2C%20Anambra%20State!5e0!3m2!1sen!2sng!4v1724077847320" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Appointment Booking -->
+    <section class="section" id="book">
+        <h2 class="section-title" style="margin-bottom: 2rem;">Book an Appointment</h2>
+        
+        <div class="appointment-section">
+            <form onsubmit="handleSubmit(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="email">Email (Optional)</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Needed *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="pediatrics">Pediatrics</option>
+                            <option value="maternity">Maternity</option>
+                            <option value="general">General Medicine</option>
+                            <option value="emergency">Emergency</option>
+                            <option value="laboratory">Laboratory Tests</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="date">Preferred Date *</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Preferred Time (Optional)</label>
+                        <input type="time" id="time" name="time">
+                    </div>
+                </div>
+
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="message">Additional Information (Optional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us more about your health concern..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Book Appointment</button>
+            </form>
+
+            <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 2rem;">
+                * Required fields. We'll contact you to confirm your appointment within 24 hours.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>🏥 For Patients</h4>
+                <ul>
+                    <li><a href="contact.html#book">Book Appointment</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="contact.html">Find Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>❤️ Support</h4>
+                <ul>
+                    <li><a href="support.html">Donate</a></li>
+                    <li><a href="about.html#mirest">Mirest Foundation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>📖 About</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2026 Good Shepherd Mirest Hospital | Compassionate Healthcare for All<br>
+        <span style="font-size: 0.85rem;">75 Orlu Road, Ekwulobia, Anambra State | +234 913 692 9445</span></p>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            
+            const message = `Hello, I'd like to book an appointment.\n\nName: ${name}\nPhone: ${phone}\nService: ${service}\nDate: ${date}`;
+            const encoded = encodeURIComponent(message);
+            
+            window.location.href = `https://wa.me/2349136929445?text=${encoded}`;
+        }
+    </script>
+</body>
+</html>

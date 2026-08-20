@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Partners - Good Shepherd Mirest Hospital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--light);
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: url('logo.png') center/contain no-repeat;
+            opacity: 0.06;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1001;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 80px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .hospital-name h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+
+        .hospital-name p {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            padding: 12px 16px;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(16, 185, 129, 0.08));
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 900;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 3rem;
+        }
+
+        .service-box {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-right: 4px solid var(--secondary);
+            transition: all 0.3s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .service-box h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .service-box p {
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .capability-list {
+            background: var(--light);
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .capability-list h4 {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .capability-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .capability-list li {
+            padding: 6px 0;
+            color: #6b7280;
+            font-size: 0.9rem;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .capability-list li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .why-partner {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .why-partner h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .partner-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .benefit {
+            padding: 20px;
+            background: var(--light);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .benefit h4 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .benefit p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .standards-section {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(16, 185, 129, 0.05));
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .standards-section h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .standards-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .standard-item {
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .standard-item h4 {
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .standard-item p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .contact-cta {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-cta h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .contact-cta p {
+            color: #6b7280;
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+
+        .contact-btn:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            padding: 40px 20px;
+            background: white;
+        }
+
+        .social-link {
+            font-size: 2rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            transform: scale(1.2);
+        }
+
+        footer {
+            background: var(--dark);
+            color: #f3f4f6;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-divider {
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                flex-direction: column;
+                gap: 16px;
+                padding: 16px 20px;
+            }
+
+            nav {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="sticky-header">
+        <header>
+            <a href="index.html" class="logo-section">
+                <div class="logo-image">
+                    <img src="logo.png" alt="Good Shepherd Mirest Hospital Logo">
+                </div>
+                <div class="hospital-name">
+                    <h1>Good Shepherd</h1>
+                    <p>Mirest Hospital</p>
+                </div>
+            </a>
+            <nav>
+                <div class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </div>
+                <div class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="nav-item">
+                    <a href="support.html" class="nav-link">Support</a>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html#book" class="cta-button">Book Appointment</a>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Professional Partners</h1>
+            <p>Building stronger healthcare networks through collaboration and referrals</p>
+        </div>
+    </section>
+
+    <!-- Partnership Opportunities -->
+    <section class="section">
+        <h2 class="section-title">Partnership Opportunities</h2>
+        <p class="section-subtitle">We welcome collaborations with healthcare professionals and institutions</p>
+        
+        <div class="services-grid">
+            <div class="service-box">
+                <div class="service-icon">🔄</div>
+                <h3>Referral Partnerships</h3>
+                <p>Seamless referral system for patients needing specialized care or follow-up services.</p>
+                <div class="capability-list">
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>Quick patient referral process</li>
+                        <li>Professional coordination</li>
+                        <li>Feedback and updates on patient progress</li>
+                        <li>Priority scheduling</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-icon">🏥</div>
+                <h3>Inter-Hospital Collaboration</h3>
+                <p>Network with other healthcare facilities for mutual support and patient care.</p>
+                <div class="capability-list">
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>Resource sharing</li>
+                        <li>Specialist consultations</li>
+                        <li>Emergency support services</li>
+                        <li>Professional networking</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-icon">👨‍⚕️</div>
+                <h3>Professional Opportunities</h3>
+                <p>Join our team as a medical professional, consultant, or specialist.</p>
+                <div class="capability-list">
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>Competitive compensation</li>
+                        <li>Flexible scheduling options</li>
+                        <li>Professional development</li>
+                        <li>Mission-driven environment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-icon">📚</div>
+                <h3>Training & Development</h3>
+                <p>Continuous medical education and professional development programs.</p>
+                <div class="capability-list">
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>Access to training programs</li>
+                        <li>Mentorship opportunities</li>
+                        <li>Latest medical updates</li>
+                        <li>Certification support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-icon">🤝</div>
+                <h3>Corporate & Organizational</h3>
+                <p>Employee health programs and corporate partnerships for organizations.</p>
+                <div class="capability-list">
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>Group health packages</li>
+                        <li>Regular health screenings</li>
+                        <li>Occupational health services</li>
+                        <li>Customized programs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-icon">🔬</div>
+                <h3>Research & Innovation</h3>
+                <p>Collaborate on healthcare research and innovative treatment approaches.</p>
+                <div class="capability-list">
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>Research collaboration</li>
+                        <li>Data sharing protocols</li>
+                        <li>Publication opportunities</li>
+                        <li>Innovation support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Partner With Us -->
+    <section class="section">
+        <div class="why-partner">
+            <h3>Why Partner With Good Shepherd Mirest Hospital?</h3>
+            <div class="partner-benefits">
+                <div class="benefit">
+                    <h4>✓ Proven Pediatric Excellence</h4>
+                    <p>We've successfully managed over 2,600 babies and children in the past 5 years with excellent outcomes—making us a trusted partner for pediatric care referrals.</p>
+                </div>
+                <div class="benefit">
+                    <h4>✓ Experienced Leadership</h4>
+                    <p>Founded and led by Dr. Pharm Oluebube Okoye—a Medical Doctor and Pharmacist with 12+ years of healthcare experience in Nigeria, supported by dedicated professionals.</p>
+                </div>
+                <div class="benefit">
+                    <h4>✓ 24/7 Availability</h4>
+                    <p>Round-the-clock emergency services ensure your patients always have access to urgent care when they need it.</p>
+                </div>
+                <div class="benefit">
+                    <h4>✓ Comprehensive Services</h4>
+                    <p>From pediatrics to maternity, emergency to pharmacy, we offer full-spectrum care in one trusted location.</p>
+                </div>
+                <div class="benefit">
+                    <h4>✓ Professional Communication</h4>
+                    <p>Regular updates on patient progress, clear referral protocols, and professional coordination with your practice.</p>
+                </div>
+                <div class="benefit">
+                    <h4>✓ Affordable Care</h4>
+                    <p>Our commitment to affordability means your patients receive excellent care without breaking the bank.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Standards -->
+    <section class="section">
+        <h2 class="section-title">Our Quality Standards</h2>
+        <div class="standards-section">
+            <h3>Professional Excellence & Patient Safety</h3>
+            <div class="standards-list">
+                <div class="standard-item">
+                    <h4>ASHIA Accreditation</h4>
+                    <p>Meets recognized healthcare accreditation standards with commitment to continuous improvement.</p>
+                </div>
+                <div class="standard-item">
+                    <h4>Patient Privacy</h4>
+                    <p>Strict confidentiality protocols and HIPAA-equivalent data protection measures.</p>
+                </div>
+                <div class="standard-item">
+                    <h4>Professional Ethics</h4>
+                    <p>All staff adhere to highest professional and ethical standards in patient care.</p>
+                </div>
+                <div class="standard-item">
+                    <h4>Continuous Training</h4>
+                    <p>Regular professional development and medical training for all team members.</p>
+                </div>
+                <div class="standard-item">
+                    <h4>Equipment Standards</h4>
+                    <p>Modern medical equipment maintained to highest safety and performance standards.</p>
+                </div>
+                <div class="standard-item">
+                    <h4>Infection Control</h4>
+                    <p>Rigorous hygiene and infection control protocols across all departments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact for Partnerships -->
+    <section class="section">
+        <div class="contact-cta">
+            <h3>Let's Build Something Great Together</h3>
+            <p>Whether you're a healthcare professional looking to refer patients, an organization interested in partnership, or a specialist interested in joining our team, we'd love to hear from you.</p>
+            <div class="contact-buttons">
+                <a href="https://wa.me/2349136929445?text=I%20am%20interested%20in%20a%20professional%20partnership%20with%20Good%20Shepherd%20Mirest%20Hospital" class="contact-btn">WhatsApp</a>
+                <a href="tel:+2349136929445" class="contact-btn">Call</a>
+                <a href="mailto:goodshepherdchospital@gmail.com" class="contact-btn">Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Links -->
+    <div class="social-links">
+        <a href="https://wa.me/2349136929445" class="social-link" title="WhatsApp">💬</a>
+        <a href="tel:+2349136929445" class="social-link" title="Call">☎️</a>
+        <a href="mailto:goodshepherdchospital@gmail.com" class="social-link" title="Email">✉️</a>
+        <a href="https://facebook.com/goodshepherdmirest" class="social-link" title="Facebook">f</a>
+        <a href="https://instagram.com/goodshepherdmirest" class="social-link" title="Instagram">📷</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>🏥 For Patients</h4>
+                <ul>
+                    <li><a href="contact.html#book">Book Appointment</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="contact.html">Find Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>❤️ Support</h4>
+                <ul>
+                    <li><a href="support.html">Donate</a></li>
+                    <li><a href="support.html">Mirest Foundation</a></li>
+                    <li><a href="support.html">Partnerships</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>📖 About</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="about.html#mission">Our Mission</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-divider">
+            <p>© 2026 Good Shepherd Mirest Hospital | Compassionate Healthcare for All<br>
+            <span style="font-size: 0.85rem;">75 Orlu Road, Ekwulobia, Anambra State | +234 913 692 9445</span></p>
+        </div>
+    </footer>
+</body>
+</html>

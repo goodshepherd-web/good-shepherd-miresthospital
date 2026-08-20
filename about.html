@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Good Shepherd Mirest Hospital</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--light);
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: url('logo.png') center/contain no-repeat;
+            opacity: 0.06;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 80px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .hospital-name h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+
+        .hospital-name p {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            padding: 12px 16px;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            min-width: 200px;
+            margin-top: 4px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 12px 16px;
+            border: none;
+            background: none;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background: var(--light);
+            color: var(--primary);
+            padding-left: 20px;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 900;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 3rem;
+        }
+
+        .story-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .story-quote {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .story-text {
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(16, 185, 129, 0.08));
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .credentials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 2rem 0;
+        }
+
+        .credential-item {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .credential-item h4 {
+            color: var(--secondary);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .credential-item p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        #mirest {
+            scroll-margin-top: 100px;
+        }
+
+        .mirest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 2rem;
+        }
+
+        .mirest-card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-top: 4px solid var(--secondary);
+        }
+
+        .mirest-card h3 {
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .mirest-card p {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        footer {
+            background: var(--dark);
+            color: #f3f4f6;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 2rem;
+            max-width: 1400px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                flex-direction: column;
+                gap: 16px;
+                padding: 16px 20px;
+            }
+
+            nav {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+
+            .story-container {
+                padding: 24px;
+            }
+
+            .credentials {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="sticky-header">
+        <header>
+            <a href="index.html" class="logo-section">
+                <div class="logo-image">
+                    <img src="logo.png" alt="Good Shepherd Mirest Hospital Logo">
+                </div>
+                <div class="hospital-name">
+                    <h1>Good Shepherd</h1>
+                    <p>Mirest Hospital</p>
+                </div>
+            </a>
+            <nav>
+                <div class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link active">About ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-item">Our Story</a>
+                        <a href="about.html#mirest" class="dropdown-item">Mirest Foundation</a>
+                        <a href="about.html#mission" class="dropdown-item">Our Mission</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">Services ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="services.html" class="dropdown-item">All Services</a>
+                        <a href="services.html#pediatrics" class="dropdown-item">Pediatrics</a>
+                        <a href="services.html#maternity" class="dropdown-item">Maternity</a>
+                        <a href="services.html#emergency" class="dropdown-item">Emergency</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">Get Involved ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="support.html" class="dropdown-item">Support Patients</a>
+                        <a href="professionals.html" class="dropdown-item">Professional Partners</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="team.html" class="nav-link">Team</a>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html#book" class="cta-button">Book Appointment</a>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(16, 185, 129, 0.08)); padding: 60px 20px; text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h1 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 12px;">Our Story</h1>
+            <p style="font-size: 1.2rem; color: #6b7280;">Founded on Compassion. Built by Dedication.</p>
+        </div>
+    </section>
+
+    <!-- Main Story -->
+    <section class="section">
+        <div class="story-container">
+            <p class="story-quote">"Access fails at the bedside, in a single moment, when a family has to choose between treatment and survival."</p>
+            
+            <p class="story-text">
+                Good Shepherd Mirest Hospital was founded by <strong>Dr. Oluebube "Miracle" Okoye</strong>, a Medical Doctor and Pharmacist with over 12 years of healthcare experience in Nigeria. Dr. Okoye's journey to founding this hospital began with a moment that changed his life forever—treating a severely malnourished three-year-old boy whose family could not afford hospital admission.
+            </p>
+
+            <p class="story-text">
+                Witnessing that impossible choice—between a child's life and a family's financial survival—opened Dr. Okoye's eyes to a deeper truth: medical expertise alone isn't enough. Healthcare access had to reach everyone, including those with the least resources.
+            </p>
+
+            <div class="highlight-box">
+                <h3>Professional Background</h3>
+                <p>With over 12 years of healthcare experience in Nigeria, Dr. Okoye brings both medical and pharmaceutical expertise to his practice. His dual qualification as a Medical Doctor and Pharmacist, combined with his deep commitment to patient care, inspired him to build Good Shepherd Mirest Hospital—a place where medical expertise meets compassion, and where no family is turned away because they lack money.</p>
+            </div>
+
+            <h3 style="color: var(--primary); margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.5rem;">His Journey & Recognition</h3>
+
+            <div class="credentials">
+                <div class="credential-item">
+                    <h4>✓ Education & Training</h4>
+                    <p>Dr. Oluebube "Miracle" Okoye - Medical Doctor and Registered Pharmacist with advanced healthcare training</p>
+                </div>
+                <div class="credential-item">
+                    <h4>✓ Experience</h4>
+                    <p>12+ Years of dedicated healthcare service in Nigeria, understanding community needs and delivering quality care</p>
+                </div>
+                <div class="credential-item">
+                    <h4>✓ Pediatric Excellence</h4>
+                    <p>Successfully managed over 2,600 babies and children in the past 5 years with excellent outcomes and compassionate care</p>
+                </div>
+                <div class="credential-item">
+                    <h4>✓ Founder</h4>
+                    <p>Founded Good Shepherd Mirest Hospital in 2021 with a mission to make healthcare accessible and affordable</p>
+                </div>
+                <div class="credential-item">
+                    <h4>✓ Founder of Mirest Foundation</h4>
+                    <p>Created Mirest Foundation to ensure healthcare access for those in severe financial hardship</p>
+                </div>
+                <div class="credential-item">
+                    <h4>✓ International Recognition</h4>
+                    <p>PracticeLink First Practice Fund Award recipient (2026) - 1 of only 9 recipients globally, honoring healthcare providers dedicated to improving access for underserved communities</p>
+                </div>
+                <div class="credential-item">
+                    <h4>✓ Philosophy</h4>
+                    <p>"I stayed humble without becoming small." - Dr. Okoye's belief that healthcare inequality can be fought one patient, one family, one community at a time.</p>
+                </div>
+            </div>
+
+            <p class="story-text" style="margin-top: 2rem;">
+                Today, Dr. Okoye remains committed to his mission: ensuring that compassionate, quality healthcare doesn't have to be expensive. Good Shepherd Mirest Hospital stands as proof that medical excellence and affordability can go hand in hand.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mirest Foundation -->
+    <section class="section" id="mirest" style="background: white;">
+        <h2 class="section-title">Mirest Foundation</h2>
+        <p class="section-subtitle">Ensuring Healthcare Access for Those in Financial Hardship</p>
+
+        <div class="mirest-grid">
+            <div class="mirest-card">
+                <h3>🤝 Our Commitment</h3>
+                <p>Founded by Dr. Okoye, the Mirest Foundation ensures patients with severe financial constraints can access quality healthcare without burden. No one is turned away because they lack money.</p>
+            </div>
+            <div class="mirest-card">
+                <h3>✓ What We Provide</h3>
+                <p>Free consultations • Subsidized or free treatment • Emergency care support • Long-term care for chronic conditions • Free maternity services for those in need</p>
+            </div>
+            <div class="mirest-card">
+                <h3>🌍 Strategic Partnerships</h3>
+                <p>We partner with foundations, organizations, and hospitals to expand healthcare access. Together, we help more families in our communities.</p>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 2rem;">
+            <h3>How the Mirest Foundation Works</h3>
+            <p>If you or your family cannot afford care, we have solutions. Through the Mirest Foundation, you can access:</p>
+            <ul style="margin-left: 20px; margin-top: 12px; color: #6b7280;">
+                <li style="margin-bottom: 8px;">Free or subsidized consultations</li>
+                <li style="margin-bottom: 8px;">Reduced-cost treatment programs</li>
+                <li style="margin-bottom: 8px;">Emergency care with flexible payment</li>
+                <li style="margin-bottom: 8px;">Support for chronic condition management</li>
+                <li style="margin-bottom: 8px;">Complete maternity care at no cost</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="section" id="mission">
+        <h2 class="section-title">Our Mission</h2>
+        <div class="story-container">
+            <p class="story-text">
+                <strong>Good Shepherd Mirest Hospital exists to provide compassionate, quality, and affordable healthcare for mothers, children, and families in Ekwulobia and beyond.</strong>
+            </p>
+            <p class="story-text">
+                We believe that access to excellent medical care should not depend on a family's wealth. Through our commitment to affordability, the Mirest Foundation, and strategic partnerships, we ensure that quality healthcare reaches everyone—especially those with the fewest resources.
+            </p>
+            <p class="story-text">
+                Every patient who walks through our doors is treated with dignity and respect. Because for us, healthcare is not a business—it's a calling.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>🏥 For Patients</h4>
+                <ul>
+                    <li><a href="contact.html#book">Book Appointment</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="contact.html">Find Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>❤️ Support</h4>
+                <ul>
+                    <li><a href="support.html">Donate</a></li>
+                    <li><a href="about.html#mirest">Mirest Foundation</a></li>
+                    <li><a href="support.html">Partnerships</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>👨‍⚕️ Professionals</h4>
+                <ul>
+                    <li><a href="professionals.html">Refer Patient</a></li>
+                    <li><a href="professionals.html">Collaborate</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>📖 About</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2026 Good Shepherd Mirest Hospital | Compassionate Healthcare for All<br>
+        <span style="font-size: 0.85rem;">75 Orlu Road, Ekwulobia, Anambra State | +234 913 692 9445</span></p>
+    </footer>
+</body>
+</html>

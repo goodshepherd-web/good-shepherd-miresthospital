@@ -42,9 +42,9 @@
   .wrap{
     max-width:1180px;
     margin:0 auto;
-    padding:0 32px;
+    padding:0 20px;
   }
-  section{padding:96px 0;}
+  section{padding:60px 0;}
   .eyebrow{
     font-family:'JetBrains Mono', monospace;
     font-size:12px;
@@ -68,39 +68,34 @@
     background:rgba(243,246,242,0.86);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--sand);
-    transition:padding .25s ease;
   }
   .nav{
     display:flex; align-items:center; justify-content:space-between;
-    padding:20px 32px;
+    padding:16px 20px;
     max-width:1180px; margin:0 auto;
   }
   .logo{
-    display:flex; align-items:center; gap:10px;
+    display:flex; align-items:center; gap:8px;
     font-family:'Space Grotesk', sans-serif;
-    font-weight:700; font-size:19px;
-    letter-spacing:-0.02em;
+    font-weight:700; font-size:16px;
   }
-  .logo svg{width:26px; height:26px;}
-  .logo img{width:28px; height:28px; border-radius:4px; object-fit:contain;}
+  .logo img{width:24px; height:24px; border-radius:4px;}
+  .logo span{display:flex; flex-direction:column; line-height:1.1;}
+  .logo span strong{font-size:14px;}
+  .logo span span{font-size:10px; opacity:0.8;}
   .nav-links{
     display:flex; align-items:center; gap:34px;
     font-size:14.5px; font-weight:500;
   }
-  .nav-links a{
-    position:relative; color:var(--ink); opacity:0.82;
-    transition:opacity .2s;
-  }
+  .nav-links a{opacity:0.82; transition:opacity .2s;}
   .nav-links a:hover{opacity:1;}
   .nav-right{display:flex; align-items:center; gap:20px;}
   .emergency-tag{
-    font-family:'JetBrains Mono', monospace;
-    font-size:12.5px; color:var(--coral); font-weight:500;
+    font-size:12.5px; color:var(--coral);
     display:flex; align-items:center; gap:6px;
   }
   .dot-live{
-    width:7px; height:7px; border-radius:50%;
-    background:var(--coral);
+    width:7px; height:7px; border-radius:50%; background:var(--coral);
     animation:pulseDot 1.6s infinite ease-in-out;
   }
   @keyframes pulseDot{
@@ -109,110 +104,66 @@
   }
   .btn{
     display:inline-flex; align-items:center; justify-content:center;
-    padding:12px 22px;
-    border-radius:999px;
+    padding:12px 22px; border-radius:999px;
     font-weight:600; font-size:14.5px;
     cursor:pointer; border:none;
-    transition:transform .18s ease, box-shadow .18s ease, background .18s;
-    font-family:'Inter', sans-serif;
+    transition:transform .18s, background .18s;
   }
-  .btn-primary{
-    background:var(--teal); color:#fff;
-  }
+  .btn-primary{background:var(--teal); color:#fff;}
   .btn-primary:hover{background:var(--teal-dark); transform:translateY(-2px);}
-  .btn-outline{
-    background:transparent; color:var(--ink); border:1.5px solid var(--ink);
-  }
+  .btn-outline{background:transparent; border:1.5px solid var(--ink); color:var(--ink);}
   .btn-outline:hover{background:var(--ink); color:#fff; transform:translateY(-2px);}
-  .btn-coral{
-    background:var(--coral); color:#fff;
-  }
-  .btn-coral:hover{background:#cf4a33; transform:translateY(-2px);}
   .hamburger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
-  .hamburger span{width:24px; height:2px; background:var(--ink); display:block;}
-  
+  .hamburger span{width:24px; height:2px; background:var(--ink);}
+
   /* Mobile Menu Dropdown */
   .mobile-menu-dropdown{
-    display:none;
-    position:absolute;
-    top:60px;
-    right:16px;
-    background:var(--paper-2);
-    border:1px solid #e5e7eb;
-    border-radius:12px;
-    min-width:200px;
-    box-shadow:0 8px 24px rgba(14,42,34,0.15);
-    z-index:99;
+    display:none; position:absolute; top:54px; right:10px;
+    background:var(--paper-2); border:1px solid #e5e7eb;
+    border-radius:12px; min-width:200px;
+    box-shadow:0 8px 24px rgba(14,42,34,0.15); z-index:99;
     flex-direction:column;
   }
-  .mobile-menu-dropdown.active{
-    display:flex;
-  }
+  .mobile-menu-dropdown.active{display:flex;}
   .mobile-menu-dropdown a{
-    padding:12px 16px;
-    border-bottom:1px solid #f3f4f6;
-    font-size:14px;
-    color:var(--ink);
-    transition:background .2s;
+    padding:12px 16px; border-bottom:1px solid #f3f4f6;
+    font-size:14px; color:var(--ink); transition:background .2s;
   }
-  .mobile-menu-dropdown a:last-child{
-    border-bottom:none;
-  }
-  .mobile-menu-dropdown a:hover{
-    background:#f9fafb;
-    color:var(--teal);
-  }
+  .mobile-menu-dropdown a:last-child{border-bottom:none;}
+  .mobile-menu-dropdown a:hover{background:#f9fafb; color:var(--teal);}
 
   /* ---------- HERO ---------- */
   .hero{
-    position:relative;
-    padding:88px 0 40px;
-    overflow:hidden;
+    position:relative; padding:60px 0 30px; overflow:hidden;
   }
   .hero-grid{
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:56px;
-    align-items:center;
+    display:grid; grid-template-columns:1.1fr 0.9fr;
+    gap:56px; align-items:center;
   }
   .hero h1{
     font-size:clamp(38px, 5vw, 62px);
-    line-height:1.04;
-    margin-bottom:22px;
+    line-height:1.04; margin-bottom:22px;
   }
-  .hero h1 em{
-    font-style:normal;
-    color:var(--teal);
-  }
+  .hero h1 em{font-style:normal; color:var(--teal);}
   .hero p.lead{
-    font-size:17.5px;
-    color:var(--text-muted);
-    max-width:460px;
-    margin-bottom:34px;
+    font-size:17.5px; color:var(--text-muted);
+    max-width:460px; margin-bottom:34px;
   }
   .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
   .hero-visual{
     position:relative;
     background:linear-gradient(160deg, var(--teal-dark), var(--teal) 60%, #16a34a);
-    border-radius:24px;
-    aspect-ratio:4/4.6;
-    display:flex; align-items:flex-end;
-    padding:28px;
-    overflow:hidden;
+    border-radius:24px; aspect-ratio:4/4.6;
+    display:flex; align-items:flex-end; padding:28px; overflow:hidden;
   }
   .hero-visual::before{
-    content:"";
-    position:absolute; inset:0;
-    background:
-      radial-gradient(circle at 20% 15%, rgba(13,148,136,0.35), transparent 45%),
-      radial-gradient(circle at 85% 80%, rgba(6,182,212,0.25), transparent 50%);
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 20% 15%, rgba(13,148,136,0.35), transparent 45%),
+               radial-gradient(circle at 85% 80%, rgba(6,182,212,0.25), transparent 50%);
   }
   .hero-card{
-    position:relative;
-    background:rgba(255,255,255,0.94);
-    border-radius:16px;
-    padding:20px;
-    width:100%;
+    position:relative; background:rgba(255,255,255,0.94);
+    border-radius:16px; padding:20px; width:100%;
     backdrop-filter:blur(6px);
   }
   .hero-card .mono{font-size:12px; color:var(--teal); letter-spacing:.08em;}
@@ -221,18 +172,17 @@
     font-size:30px; font-weight:700; margin:4px 0 2px;
   }
 
-  /* stats bar */
+  /* STATS BAR - ALL ON ONE LINE */
   .stats-bar{
     border-top:1px solid var(--sand);
     border-bottom:1px solid var(--sand);
-    padding:44px 0;
+    padding:32px 0;
   }
   .stats-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:24px;
-    text-align:left;
+    display:flex; justify-content:space-around; gap:20px;
+    flex-wrap:wrap;
   }
+  .stat{text-align:center;}
   .stat .num{
     font-family:'JetBrains Mono', monospace;
     font-size:34px; font-weight:500; color:var(--teal-dark);
@@ -241,66 +191,69 @@
     font-size:13.5px; color:var(--text-muted); margin-top:4px;
   }
 
-  /* ---------- SECTION HEADS ---------- */
-  .section-head{
-    max-width:680px;
-    margin-bottom:56px;
+  /* ACCORDION STYLES */
+  .accordion-item{
+    border-bottom:1px solid #e5e7eb; padding:16px 0;
   }
-  .section-head h2{
-    font-size:clamp(36px, 4vw, 48px);
-    line-height:1.12;
+  .accordion-item:last-child{border-bottom:none;}
+  .accordion-header{
+    display:flex; justify-content:space-between; align-items:center;
+    cursor:pointer; padding:12px 0;
+    background:none; border:none;
+    font-size:15px; font-weight:600;
+    color:var(--ink); width:100%;
+    text-align:left; transition:color .2s;
+  }
+  .accordion-header:hover{color:var(--teal);}
+  .accordion-toggle{
+    font-size:20px; transition:transform .3s;
+    display:flex; align-items:center; width:24px; height:24px;
+  }
+  .accordion-toggle.active{transform:rotate(180deg);}
+  .accordion-content{
+    max-height:0; overflow:hidden;
+    transition:max-height .3s ease; padding:0;
+  }
+  .accordion-content.active{max-height:500px; padding:12px 0;}
+  .accordion-text{
+    font-size:13px; color:var(--text-muted); line-height:1.6;
+  }
+  .accordion-icon{
+    font-size:32px; text-align:center; margin-bottom:8px;
   }
 
+  /* SECTION HEADS */
+  .section-head{max-width:680px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(36px, 4vw, 48px); line-height:1.12;}
+
   /* ---------- CARE SECTION ---------- */
-  #care .wrap{display:grid; grid-template-columns:1fr 1.3fr; gap:56px; align-items:start;}
-  #care .section-head{margin-bottom:0;}
   .care-cards{
-    display:grid;
-    grid-template-columns:1fr 1fr;
+    display:grid; grid-template-columns:1fr 1fr;
     gap:24px;
   }
   .care-card{
-    background:var(--paper-2);
-    border:1px solid #e5e7eb;
-    border-radius:16px;
-    padding:32px 24px;
-    text-align:center;
-    transition:all .3s ease;
+    background:var(--paper-2); border:1px solid #e5e7eb;
+    border-radius:16px; padding:32px 24px;
+    text-align:center; transition:all .3s;
   }
   .care-card:hover{
     border-color:var(--teal);
     box-shadow:0 12px 32px rgba(15,118,110,0.12);
     transform:translateY(-4px);
   }
-  .care-card-icon{
-    font-size:36px;
-    margin-bottom:16px;
-  }
+  .care-card-icon{font-size:36px; margin-bottom:16px;}
   .care-card h3{font-size:18px; margin-bottom:10px;}
   .care-card p{font-size:14px; color:var(--text-muted);}
 
-  /* ---------- DOCTORS SECTION ---------- */
+  /* DOCTORS */
   .doctors-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
     gap:28px;
   }
   .doctor-card{
-    background:var(--paper-2);
-    border:1px solid #e5e7eb;
-    border-radius:16px;
-    padding:32px 24px;
-    text-align:center;
-    transition:all .3s ease;
-    opacity:0;
-    animation:fadeInUp .6s ease-out forwards;
-  }
-  .doctor-card:nth-child(1){animation-delay:0.1s;}
-  .doctor-card:nth-child(2){animation-delay:0.2s;}
-  .doctor-card:nth-child(3){animation-delay:0.3s;}
-  @keyframes fadeInUp{
-    from{opacity:0; transform:translateY(24px);}
-    to{opacity:1; transform:translateY(0);}
+    background:var(--paper-2); border:1px solid #e5e7eb;
+    border-radius:16px; padding:32px 24px; text-align:center;
+    transition:all .3s;
   }
   .doctor-card:hover{
     border-color:var(--teal);
@@ -308,8 +261,7 @@
     transform:translateY(-4px);
   }
   .doctor-avatar{
-    width:64px; height:64px;
-    border-radius:50%;
+    width:64px; height:64px; border-radius:50%;
     display:flex; align-items:center; justify-content:center;
     color:#fff; font-weight:700; font-size:20px;
     margin:0 auto 16px;
@@ -317,265 +269,190 @@
   .doctor-card h3{font-size:18px; margin-bottom:8px;}
   .specialty{
     font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.08em;
-    color:var(--teal);
-    display:block;
-    margin-bottom:12px;
+    font-size:11px; letter-spacing:0.08em;
+    color:var(--teal); display:block; margin-bottom:12px;
   }
   .doctor-card p{font-size:14px; color:var(--text-muted); margin-bottom:16px;}
-  .doctor-book{
-    font-weight:600; color:var(--teal); display:inline-block;
-    transition:all .2s;
-  }
+  .doctor-book{font-weight:600; color:var(--teal); display:inline-block; transition:all .2s;}
   .doctor-card:hover .doctor-book{transform:translateX(4px);}
 
-  /* ---------- APPOINTMENT ---------- */
-  #appointment .wrap{display:grid; grid-template-columns:1fr 1.2fr; gap:56px; align-items:start;}
+  /* APPOINTMENT */
+  .appt-section{display:grid; grid-template-columns:1fr 1.2fr; gap:56px; align-items:start;}
   .appt-side{display:flex; flex-direction:column; gap:32px;}
   .appt-side h2{font-size:32px; margin-top:0;}
   .appt-side p{color:var(--text-muted); font-size:15px;}
   .hours{
     background:linear-gradient(135deg, rgba(13,148,136,0.08), rgba(6,182,212,0.08));
-    border-radius:12px;
-    padding:20px;
+    border-radius:12px; padding:20px;
     font-family:'JetBrains Mono', monospace;
-    font-size:13.5px;
-    line-height:1.7;
-    color:var(--ink);
+    font-size:13.5px; line-height:1.7; color:var(--ink);
   }
   .appt-form{background:var(--paper-2); border:1px solid #e5e7eb; border-radius:16px; padding:32px;}
   .form-row{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;}
   .form-row.full{grid-template-columns:1fr;}
   .field{display:flex; flex-direction:column;}
-  .field label{
-    font-size:14px; font-weight:600; margin-bottom:8px;
-    color:var(--ink);
-  }
+  .field label{font-size:14px; font-weight:600; margin-bottom:8px; color:var(--ink);}
   .field input, .field select{
-    padding:12px 14px;
-    border:1.5px solid #e5e7eb;
-    border-radius:8px;
-    font-size:14px;
-    font-family:'Inter', sans-serif;
-    transition:border-color .2s;
+    padding:12px 14px; border:1.5px solid #e5e7eb;
+    border-radius:8px; font-size:14px;
+    font-family:'Inter', sans-serif; transition:border-color .2s;
   }
   .field input:focus, .field select:focus{
-    outline:none;
-    border-color:var(--teal);
+    outline:none; border-color:var(--teal);
     box-shadow:0 0 0 3px rgba(13,148,136,0.1);
   }
-  .form-note{
-    font-size:13px; color:var(--text-muted); margin-top:16px;
-  }
+  .form-note{font-size:13px; color:var(--text-muted); margin-top:16px;}
 
-  /* ---------- TESTIMONIALS ---------- */
+  /* TESTIMONIALS */
   .testi-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
     gap:28px;
   }
   .testi-card{
-    background:var(--paper-2);
-    border:1px solid #e5e7eb;
-    border-radius:16px;
-    padding:32px;
-    position:relative;
-    opacity:0;
-    animation:fadeInUp .6s ease-out forwards;
+    background:var(--paper-2); border:1px solid #e5e7eb;
+    border-radius:16px; padding:32px; position:relative; transition:all .3s;
   }
-  .testi-card:nth-child(1){animation-delay:0.1s;}
-  .testi-card:nth-child(2){animation-delay:0.2s;}
-  .testi-card:nth-child(3){animation-delay:0.3s;}
   .testi-card:hover{
     border-color:var(--teal);
     box-shadow:0 12px 32px rgba(15,118,110,0.12);
   }
-  .quote-mark{
-    font-size:48px; color:var(--teal); opacity:0.3;
-    position:absolute; top:12px; left:20px;
-  }
-  .testi-card p{
-    font-size:16px; line-height:1.6; margin-bottom:24px; color:var(--ink);
-  }
-  .testi-person{
-    display:flex; align-items:center; gap:12px;
-  }
+  .quote-mark{font-size:48px; color:var(--teal); opacity:0.3; position:absolute; top:12px; left:20px;}
+  .testi-card p{font-size:16px; line-height:1.6; margin-bottom:24px; color:var(--ink);}
+  .testi-person{display:flex; align-items:center; gap:12px;}
   .testi-avatar{
-    width:44px; height:44px;
-    border-radius:50%;
+    width:44px; height:44px; border-radius:50%;
     display:flex; align-items:center; justify-content:center;
     color:#fff; font-weight:700; font-size:14px;
   }
   .testi-person .name{font-weight:600; font-size:14px;}
   .testi-person .role{font-size:13px; color:var(--text-muted);}
 
-  /* ---------- CONTACT ---------- */
-  #contact .wrap{display:grid; grid-template-columns:1fr 1.2fr; gap:56px;}
+  /* CONTACT */
+  .contact-grid{display:grid; grid-template-columns:1fr 1.2fr; gap:56px;}
   .contact-map{
     background:linear-gradient(135deg, var(--teal-dark), var(--teal));
-    border-radius:16px;
-    aspect-ratio:1;
-    display:flex; align-items:center; justify-content:center;
-    position:relative;
+    border-radius:16px; aspect-ratio:1;
+    display:flex; align-items:center; justify-content:center; position:relative;
   }
-  .map-pin{
-    width:40px; height:40px;
-    background:rgba(255,255,255,0.2);
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .map-pin span{
-    width:12px; height:12px;
-    background:#fff;
-    border-radius:50%;
-  }
+  .map-pin{width:40px; height:40px; background:rgba(255,255,255,0.2); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;}
+  .map-pin span{width:12px; height:12px; background:#fff; border-radius:50%;}
   .contact-list{display:flex; flex-direction:column; gap:20px; justify-content:center;}
-  .contact-item{
-    display:flex; gap:16px;
-  }
+  .contact-item{display:flex; gap:16px;}
   .contact-item .icon{
     width:44px; height:44px;
     background:linear-gradient(135deg, var(--teal-dark), var(--teal));
-    border-radius:8px;
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
+    border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
   .contact-item h4{font-size:14px; margin-bottom:4px;}
   .contact-item p{font-size:14px; color:var(--text-muted);}
 
-  /* ---------- FOOTER ---------- */
-  footer{
-    background:var(--ink);
-    color:#fff;
-    padding:56px 0;
-  }
+  /* FOOTER */
+  footer{background:var(--ink); color:#fff; padding:56px 0;}
   .footer-grid{
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr 1fr;
-    gap:48px;
-    margin-bottom:40px;
+    display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr;
+    gap:48px; margin-bottom:40px;
   }
   .footer-logo{
     display:flex; align-items:center; gap:8px;
     font-family:'Space Grotesk', sans-serif;
-    font-weight:700; font-size:16px;
-    margin-bottom:16px;
+    font-weight:700; font-size:16px; margin-bottom:16px;
   }
   footer p{font-size:13.5px; opacity:0.8; line-height:1.6;}
-  .footer-col h5{font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px; color:#2FD4A0;}
+  .footer-col h5{font-size:13px; font-weight:700; text-transform:uppercase;
+    letter-spacing:0.1em; margin-bottom:16px; color:#2FD4A0;}
   .footer-col a{
-    display:block;
-    font-size:13.5px;
-    opacity:0.8;
-    margin-bottom:12px;
+    display:block; font-size:13.5px; opacity:0.8; margin-bottom:12px;
     transition:opacity .2s;
   }
   .footer-col a:hover{opacity:1;}
   .footer-bottom{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:12px;
-    opacity:0.6;
-    border-top:1px solid rgba(255,255,255,0.1);
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:12px; opacity:0.6; border-top:1px solid rgba(255,255,255,0.1);
     padding-top:24px;
   }
   .social-row{display:flex; gap:12px;}
   .social-row a{
-    width:32px; height:32px;
-    display:flex; align-items:center; justify-content:center;
-    background:rgba(255,255,255,0.1);
-    border-radius:6px;
-    transition:background .2s;
+    width:32px; height:32px; display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,0.1); border-radius:6px; transition:background .2s;
   }
   .social-row a:hover{background:rgba(255,255,255,0.2);}
 
   /* ---------- MOBILE ---------- */
   @media(max-width:768px){
-    .wrap{padding:0 20px;}
-    section{padding:60px 0;}
-    .nav{padding:16px 20px; flex-wrap:wrap; position:relative;}
+    .wrap{padding:0 16px;}
+    section{padding:40px 0;}
+    .nav{padding:12px 14px; gap:8px;}
     .hamburger{display:flex;}
-    .nav-links, .nav-right{display:none;}
-    .logo{font-size:15px;}
-    .logo span{font-size:10px;}
-    .logo img{width:24px; height:24px;}
-    
-    /* Mobile menu dropdown positioning */
-    #mobileMenu{position:fixed; top:60px; right:12px; left:auto; width:calc(100% - 24px); max-width:280px;}
-    
-    /* Commitment section - more compact on mobile */
-    #commitment > .wrap > div{
-      grid-template-columns:1fr;
-      gap:12px;
-    }
-    #commitment > .wrap > div > div{
-      padding:16px;
-    }
-    #commitment > .wrap > div > div h4{
-      font-size:14px;
-    }
-    #commitment > .wrap > div > div p{
-      font-size:12px;
-    }
-    
-    .hero-grid, #care .wrap, #appointment .wrap, #contact .wrap, 
-    #story .wrap > div, #foundation .wrap > div {
-      grid-template-columns:1fr;
-      gap:32px;
-    }
-    .hero h1{font-size:36px;}
-    .hero-visual{aspect-ratio:1;}
-    .stats-grid{grid-template-columns:repeat(2,1fr); gap:16px;}
-    .stat .num{font-size:28px;}
-    .stat .label{font-size:12px;}
-    .care-cards{grid-template-columns:1fr;}
-    .section-head h2{font-size:32px;}
-    .footer-grid{grid-template-columns:1fr; gap:24px;}
-    .footer-bottom{flex-direction:column; gap:16px;}
-    .appt-form{padding:24px;}
-    .form-row{grid-template-columns:1fr;}
-    .testi-grid{grid-template-columns:1fr;}
+    .nav-links, .nav-right{display:none !important;}
+    .mobile-menu-dropdown{position:fixed; top:54px; right:10px; left:auto; width:calc(100% - 20px); max-width:220px;}
+
+    .hero{padding:32px 0 16px;}
+    .hero-grid{grid-template-columns:1fr; gap:20px;}
+    .hero h1{font-size:30px; margin-bottom:14px;}
+    .hero p.lead{font-size:14px; margin-bottom:18px;}
+    .hero-visual{aspect-ratio:1.1; padding:16px;}
+
+    .stats-bar{padding:24px 0;}
+    .stats-grid{flex-wrap:wrap; gap:12px;}
+    .stat{flex:1; min-width:80px;}
+    .stat .num{font-size:24px;}
+    .stat .label{font-size:11px;}
+
+    .section-head{margin-bottom:28px;}
+    .section-head h2{font-size:27px;}
+
+    .accordion-header{font-size:14px; padding:10px 0;}
+    .accordion-text{font-size:12px;}
+    .accordion-icon{font-size:28px;}
+
+    .care-cards{grid-template-columns:1fr; gap:10px;}
+    .care-card{padding:14px;}
+    .care-card h3{font-size:14px;}
+    .care-card p{font-size:12px;}
+
     .doctors-grid{grid-template-columns:1fr;}
+    .doctor-card{padding:18px;}
+
+    .appt-section{grid-template-columns:1fr; gap:24px;}
+    .appt-form{padding:16px;}
+    .form-row{grid-template-columns:1fr; gap:10px;}
+    .field label{font-size:12px;}
+    .field input, .field select{font-size:13px; padding:9px;}
+
+    .testi-grid{grid-template-columns:1fr;}
+    .testi-card{padding:14px;}
+    .testi-card p{font-size:12px;}
+
+    .contact-grid{grid-template-columns:1fr; gap:24px;}
+    .footer-grid{grid-template-columns:1fr; gap:20px;}
+    .footer-bottom{flex-direction:column; gap:10px;}
+    .footer-col{text-align:center;}
+    .btn{padding:10px 16px; font-size:12px;}
   }
   
   @media(max-width:480px){
-    .wrap{padding:0 16px;}
-    section{padding:48px 0;}
-    .logo span strong{display:none;}
-    .logo span span{display:none;}
-    .emergency-tag{display:none;}
-    
-    /* Even more compact on small phones */
-    #commitment > .wrap > div{
-      grid-template-columns:1fr;
-      gap:8px;
-    }
-    #commitment > .wrap > div > div{
-      padding:12px;
-    }
-    
-    .hero h1{font-size:32px;}
-    .stats-grid{grid-template-columns:1fr; gap:12px;}
-    .stat .num{font-size:24px;}
-    .stat .label{font-size:11px;}
-    .section-head h2{font-size:28px;}
-    .btn{padding:10px 18px; font-size:13px;}
+    .wrap{padding:0 12px;}
+    section{padding:28px 0;}
+    .nav{padding:10px 12px;}
+    .hero{padding:24px 0 12px;}
+    .hero h1{font-size:26px;}
+    .stats-grid{gap:8px;}
+    .stat .num{font-size:20px;}
+    .section-head h2{font-size:24px;}
   }
 </style>
 </head>
 <body>
 
-<!-- ---------- HEADER ---------- -->
+<!-- HEADER -->
 <header>
   <div class="nav">
     <a href="#" class="logo">
-      <svg viewBox="0 0 24 24" fill="none" style="display:none;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="#0d9488"/></svg>
-      <img src="logo.png" alt="Hospital Logo" style="width:28px; height:28px; object-fit:contain;">
-      <span style="display:flex; flex-direction:column; line-height:1.2;">
+      <img src="logo.png" alt="Hospital Logo">
+      <span>
         <strong>GOOD SHEPHERD</strong>
-        <span style="font-size:11px; font-weight:500; opacity:0.8;">MIREST HOSPITAL</span>
+        <span>MIREST HOSPITAL</span>
       </span>
     </a>
     <nav class="nav-links">
@@ -595,7 +472,6 @@
     </div>
     <button class="hamburger"><span></span><span></span><span></span></button>
     
-    <!-- Mobile Menu Dropdown -->
     <div class="mobile-menu-dropdown" id="mobileMenu">
       <a href="#care">Services</a>
       <a href="#story">Our Story</a>
@@ -608,7 +484,7 @@
   </div>
 </header>
 
-<!-- ---------- HERO ---------- -->
+<!-- HERO -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
@@ -625,14 +501,14 @@
           <div class="mono">Dr. Oluebube Okoye</div>
           <div class="big-num">10,000+</div>
           <div style="font-size:13px; color:#6b7280; margin-top:4px;">Children Cared For</div>
-          <div style="font-size:12px; color:#9ca3af; margin-top:8px;">Medical Doctor & Pharmacist<br>20+ Years Experience</div>
+          <div style="font-size:12px; color:#6b7280; margin-top:8px;">Medical Doctor & Pharmacist<br>20+ Years Experience</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ---------- STATS ---------- -->
+<!-- STATS - ALL ON ONE LINE -->
 <div class="stats-bar">
   <div class="wrap">
     <div class="stats-grid">
@@ -656,88 +532,113 @@
   </div>
 </div>
 
-<!-- ---------- OUR COMMITMENT ---------- -->
+<!-- WHY CHOOSE US - ACCORDION -->
 <section id="commitment">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Our Promise</div>
       <h2>Why Choose Good Shepherd Mirest</h2>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
-      <div style="padding:20px;">
-        <div style="font-size:32px; margin-bottom:12px;">💚</div>
-        <h4 style="color:var(--ink); margin-bottom:8px; font-size:15px;">Compassionate Care</h4>
-        <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">We treat you like family. Every patient deserves dignity and respect.</p>
+    
+    <div id="commitmentAccordion">
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          💚 Compassionate Care
+          <span class="accordion-toggle">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">We treat you like family. Every patient is treated with dignity and respect. Your comfort and wellbeing matter to us.</div>
+        </div>
       </div>
-      <div style="padding:20px;">
-        <div style="font-size:32px; margin-bottom:12px;">⭐</div>
-        <h4 style="color:var(--ink); margin-bottom:8px; font-size:15px;">Proven Excellence</h4>
-        <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">10,000+ children thriving. 2,600+ families trust us.</p>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          ⭐ Proven Excellence
+          <span class="accordion-toggle">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">10,000+ children thriving. 2,600+ families trust us. Our team's combined 20+ years of expertise delivering results.</div>
+        </div>
       </div>
-      <div style="padding:20px;">
-        <div style="font-size:32px; margin-bottom:12px;">💰</div>
-        <h4 style="color:var(--ink); margin-bottom:8px; font-size:15px;">Affordable Access</h4>
-        <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Premium care at prices families can afford. No one turned away.</p>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          💰 Affordable Access
+          <span class="accordion-toggle">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Premium care at prices families can afford. Flexible payments. No one is turned away because they lack money.</div>
+        </div>
       </div>
-      <div style="padding:20px;">
-        <div style="font-size:32px; margin-bottom:12px;">🏥</div>
-        <h4 style="color:var(--ink); margin-bottom:8px; font-size:15px;">Modern Facilities</h4>
-        <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Clean, equipped, and comfortable. Your safety is priority.</p>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          🏥 Modern Facilities
+          <span class="accordion-toggle">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Clean, well-equipped hospital. Comfortable environment. Latest technology. Every detail designed for your safety.</div>
+        </div>
       </div>
-      <div style="padding:20px;">
-        <div style="font-size:32px; margin-bottom:12px;">🤝</div>
-        <h4 style="color:var(--ink); margin-bottom:8px; font-size:15px;">Support for All</h4>
-        <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Mirest Foundation provides free care for families in need.</p>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          🤝 Support for All
+          <span class="accordion-toggle">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Mirest Foundation provides free care for families in need. Healthcare access should never be limited by finances.</div>
+        </div>
       </div>
-      <div style="padding:20px;">
-        <div style="font-size:32px; margin-bottom:12px;">🌍</div>
-        <h4 style="color:var(--ink); margin-bottom:8px; font-size:15px;">Community First</h4>
-        <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Serving Ekwulobia and beyond. Building healthier community.</p>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          🌍 Community First
+          <span class="accordion-toggle">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Serving Ekwulobia and beyond. Building a healthier community. One family at a time. Making a real difference.</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ---------- OUR STORY ---------- -->
+<!-- OUR STORY - FULL WIDTH TEXT ON MOBILE -->
 <section id="story">
   <div class="wrap">
-    <div style="display:grid; grid-template-columns:1fr 1.1fr; gap:56px; align-items:center;">
+    <div class="section-head">
+      <div class="eyebrow">Founder's Vision</div>
+      <h2>The Good Shepherd Mirest Story</h2>
+    </div>
+    
+    <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:start;">
       <div>
-        <div class="section-head" style="margin-bottom:0;">
-          <div class="eyebrow">Founder's Vision</div>
-          <h2>The Good Shepherd Mirest Story</h2>
-        </div>
-        <div style="margin-top:32px;">
-          <p style="font-size:16px; line-height:1.7; color:var(--text-muted); margin-bottom:20px;">
-            <strong style="color:var(--ink);">Dr. Oluebube "Miracle" Okoye</strong> founded Good Shepherd Mirest Hospital with a simple belief: <strong>healthcare access should never be limited by financial constraints.</strong>
-          </p>
-          <p style="font-size:16px; line-height:1.7; color:var(--text-muted); margin-bottom:20px;">
-            As both a Medical Doctor and Registered Pharmacist with over 12 years of experience in healthcare, Dr. Okoye saw too many families struggling to afford quality care. She decided to create something different—a hospital that combines expert medical care with compassion and affordability.
-          </p>
-          <p style="font-size:16px; line-height:1.7; color:var(--text-muted); margin-bottom:20px;">
-            Since founding Good Shepherd Mirest Hospital, Dr. Okoye and her dedicated team have cared for over 10,000 children and served 2,600+ families. Every child, every family, receives the same expert care and compassion.
-          </p>
-          <p style="font-size:16px; line-height:1.7; color:var(--text-muted);">
-            <strong style="color:var(--ink);">"I stayed humble without becoming small."</strong> — Dr. Oluebube Okoye
-          </p>
-          <div style="margin-top:32px; padding:20px; background:linear-gradient(135deg, rgba(13,148,136,0.1), rgba(6,182,212,0.1)); border-radius:12px; border-left:4px solid var(--teal);">
-            <p style="font-size:14px; color:var(--text-muted); margin:0;">
-              <strong style="color:var(--ink);">2026 Recognition:</strong> PracticeLink First Practice Fund recipient — 1 of 9 selected globally for healthcare excellence and impact.
-            </p>
-          </div>
-        </div>
+        <p style="font-size:16px; line-height:1.8; color:var(--text-muted); margin-bottom:20px;">
+          <strong style="color:var(--ink); font-size:17px;">Dr. Oluebube "Miracle" Okoye</strong> founded Good Shepherd Mirest Hospital with a simple belief: <strong>healthcare access should never be limited by financial constraints.</strong>
+        </p>
+        <p style="font-size:16px; line-height:1.8; color:var(--text-muted); margin-bottom:20px;">
+          As both a Medical Doctor and Registered Pharmacist with over 20 years of experience in healthcare, Dr. Okoye saw too many families struggling to afford quality care. She decided to create something different—a hospital that combines expert medical care with compassion and affordability.
+        </p>
+        <p style="font-size:16px; line-height:1.8; color:var(--text-muted); margin-bottom:20px;">
+          Since founding Good Shepherd Mirest Hospital, Dr. Okoye and her dedicated team have cared for over 10,000 children and served 2,600+ families. Every child, every family, receives the same expert care and compassion.
+        </p>
+        <p style="font-size:16px; line-height:1.8; color:var(--text-muted); font-weight:600;">
+          "I stayed humble without becoming small." — Dr. Oluebube Okoye
+        </p>
       </div>
-      <div style="background:linear-gradient(135deg, var(--teal-dark), var(--teal) 60%, #16a34a); border-radius:24px; aspect-ratio:3/3.5; display:flex; align-items:flex-end; padding:28px; overflow:hidden; position:relative;">
-        <div style="position:absolute; inset:0; background:radial-gradient(circle at 20% 15%, rgba(13,148,136,0.35), transparent 45%), radial-gradient(circle at 85% 80%, rgba(6,182,212,0.25), transparent 50%);"></div>
-        <div style="position:relative; background:rgba(255,255,255,0.94); border-radius:16px; padding:24px; width:100%; backdrop-filter:blur(6px);">
-          <div style="font-size:12px; color:var(--teal); letter-spacing:.08em; font-family:'JetBrains Mono', monospace; margin-bottom:8px;">FOUNDER & PHYSICIAN</div>
-          <div style="font-family:'Space Grotesk', sans-serif; font-size:22px; font-weight:700; margin-bottom:4px; color:var(--ink);">Dr. Oluebube Okoye</div>
-          <div style="font-size:13px; color:#6b7280; margin-bottom:12px;">Medical Doctor + Registered Pharmacist</div>
-          <div style="font-size:12px; color:#6b7280; line-height:1.6;">
-            ✓ 20+ years healthcare experience<br>
-            ✓ 10,000+ children cared for<br>
-            ✓ 2,600+ families served<br>
-            ✓ PracticeLink Award recipient 2026
+      
+      <div style="background:linear-gradient(135deg, var(--teal-dark), var(--teal) 60%, #16a34a); border-radius:24px; aspect-ratio:1; display:flex; align-items:flex-end; padding:24px; overflow:hidden; position:relative;">
+        <div style="position:absolute; inset:0; background:radial-gradient(circle at 20% 15%, rgba(13,148,136,0.35), transparent 45%);"></div>
+        <div style="position:relative; background:rgba(255,255,255,0.94); border-radius:16px; padding:20px; width:100%; backdrop-filter:blur(6px); text-align:center;">
+          <div style="font-size:11px; color:var(--teal); letter-spacing:.08em; font-family:'JetBrains Mono', monospace; margin-bottom:8px;">FOUNDER & PHYSICIAN</div>
+          <div style="font-family:'Space Grotesk', sans-serif; font-size:18px; font-weight:700; margin-bottom:4px; color:var(--ink);">Dr. Oluebube Okoye</div>
+          <div style="font-size:12px; color:#6b7280; margin-bottom:12px;">Medical Doctor + Pharmacist</div>
+          <div style="font-size:11px; color:#6b7280; line-height:1.6;">
+            ✓ 20+ years experience<br>
+            ✓ 10,000+ children served<br>
+            ✓ 2,600+ families<br>
+            ✓ Award recipient 2026
           </div>
         </div>
       </div>
@@ -745,18 +646,92 @@
   </div>
 </section>
 
-<!-- ---------- MIREST FOUNDATION ---------- -->
-<section id="foundation" style="background:linear-gradient(135deg, rgba(232,89,63,0.08), rgba(6,182,212,0.08));">
+<!-- SERVICES - ACCORDION -->
+<section id="care">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Our Services</div>
+      <h2>Complete Healthcare for Families</h2>
+    </div>
+
+    <div id="servicesAccordion">
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          👶 Pediatrics
+          <span class="accordion-toggle">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Expert care from newborns to adolescents. 10,000+ children thriving in our care. Specialized pediatric expertise with compassionate approach.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          🤰 Maternity Care
+          <span class="accordion-toggle">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Safe deliveries. Expert guidance. Free maternity support for families in need. Experienced team for every stage of pregnancy.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          🚨 Emergency Care
+          <span class="accordion-toggle">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">24/7 emergency response. Immediate care team. Always ready for urgent needs. Fast, professional trauma and crisis response.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          🔬 Laboratory
+          <span class="accordion-toggle">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Advanced diagnostics. Quick results. Accurate testing for peace of mind. State-of-the-art laboratory equipment.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          💊 Pharmacy
+          <span class="accordion-toggle">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">On-site pharmacy with expert pharmacists. Wide selection. Always available. Specialized medications and expert advice.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          🏥 General Medicine
+          <span class="accordion-toggle">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">All-round care for your family. Trusted expertise. Compassionate approach. Comprehensive health services for everyone.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MIREST FOUNDATION -->
+<section id="foundation">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Social Impact</div>
       <h2>Mirest Foundation — Healthcare for All</h2>
     </div>
-    <div style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;">
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;">
       <div>
-        <p style="font-size:17px; line-height:1.8; color:var(--text-muted); margin-bottom:24px;">
+        <p style="font-size:16px; line-height:1.8; color:var(--text-muted); margin-bottom:24px;">
           The <strong style="color:var(--ink);">Mirest Foundation</strong> was created to ensure that no family is turned away because they cannot afford healthcare. We believe quality medical care is a right, not a privilege.
         </p>
+        
         <div style="margin-bottom:24px;">
           <h4 style="color:var(--ink); margin-bottom:12px; font-size:16px;">What We Do:</h4>
           <ul style="list-style:none; padding:0; color:var(--text-muted);">
@@ -768,81 +743,35 @@
             <li>✓ Community outreach and wellness</li>
           </ul>
         </div>
-        <p style="font-size:16px; color:var(--ink); font-weight:600;">How You Can Help:</p>
-        <p style="font-size:15px; line-height:1.7; color:var(--text-muted); margin-top:8px;">
-          Every contribution supports our mission to provide compassionate, quality healthcare to families who need it most. Your donation directly impacts lives.
+
+        <p style="font-size:15px; color:var(--ink); font-weight:600;">How You Can Help:</p>
+        <p style="font-size:14px; line-height:1.7; color:var(--text-muted); margin-top:8px;">
+          Every contribution supports our mission to provide compassionate, quality healthcare to families who need it most.
         </p>
-        <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="#support" class="btn btn-primary">Support Mirest Foundation</a>
-          <a href="#contact" class="btn btn-outline">Learn More</a>
-        </div>
       </div>
+
       <div style="background:linear-gradient(135deg, rgba(232,89,63,0.15), rgba(6,182,212,0.15)); border-radius:16px; padding:32px; text-align:center;">
         <div style="font-size:48px; margin-bottom:16px;">❤️</div>
-        <div style="font-family:'Space Grotesk', sans-serif; font-size:32px; font-weight:700; color:var(--teal); margin-bottom:8px;">Families Helped</div>
-        <p style="font-size:14px; color:var(--text-muted); margin-bottom:24px;">Through free care and subsidized programs</p>
-        <div style="background:var(--paper-2); border-radius:12px; padding:20px; margin-bottom:16px;">
+        <div style="font-family:'Space Grotesk', sans-serif; font-size:28px; font-weight:700; color:var(--teal); margin-bottom:8px;">Families Helped</div>
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:24px;">Through free care and subsidized programs</p>
+        <div style="background:var(--paper-2); border-radius:12px; padding:16px;">
           <p style="font-size:13px; color:var(--text-muted); line-height:1.6;">
-            "We exist to serve. No family will ever be turned away at Good Shepherd Mirest because they lack money. That's our promise."
+            "We exist to serve. No family will ever be turned away because they lack money."
           </p>
         </div>
-        <p style="font-size:12px; color:var(--text-muted);">— Dr. Oluebube Okoye, Founder</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ---------- CARE SECTION ---------- -->
-<section id="care">
-  <div class="wrap">
-    <div>
-      <div class="section-head">
-        <div class="eyebrow">Our Services</div>
-        <h2>Complete healthcare for mothers, children, and families</h2>
-      </div>
-    </div>
-    <div class="care-cards">
-      <div class="care-card">
-        <div class="care-card-icon">👶</div>
-        <h3>Pediatrics</h3>
-        <p>Expert care from newborns to adolescents. 10,000+ children thriving in our care.</p>
-      </div>
-      <div class="care-card">
-        <div class="care-card-icon">🤰</div>
-        <h3>Maternity</h3>
-        <p>Safe deliveries. Expert guidance. Free maternity support for families in need.</p>
-      </div>
-      <div class="care-card">
-        <div class="care-card-icon">🚨</div>
-        <h3>Emergency Care</h3>
-        <p>24/7 emergency response. Immediate care team. Always ready for urgent needs.</p>
-      </div>
-      <div class="care-card">
-        <div class="care-card-icon">🔬</div>
-        <h3>Laboratory</h3>
-        <p>Advanced diagnostics. Quick results. Accurate testing for peace of mind.</p>
-      </div>
-      <div class="care-card">
-        <div class="care-card-icon">💊</div>
-        <h3>Pharmacy</h3>
-        <p>On-site pharmacy with expert pharmacists. Wide selection. Always available.</p>
-      </div>
-      <div class="care-card">
-        <div class="care-card-icon">🏥</div>
-        <h3>General Medicine</h3>
-        <p>All-round care for your family. Trusted expertise. Compassionate approach.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ---------- DOCTORS SECTION ---------- -->
+<!-- TEAM -->
 <section id="doctors">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Healthcare Team</div>
       <h2>Experienced professionals dedicated to your health</h2>
     </div>
+    
     <div class="doctors-grid">
       <div class="doctor-card">
         <div class="doctor-avatar" style="background:linear-gradient(135deg, #0f766e, #0d9488);">OO</div>
@@ -869,99 +798,73 @@
   </div>
 </section>
 
-<!-- ---------- APPOINTMENT ---------- -->
+<!-- APPOINTMENT -->
 <section id="appointment">
   <div class="wrap">
-    <div class="appt-side">
-      <div>
-        <div class="eyebrow">Book a Visit</div>
-        <h2>Easy appointment booking</h2>
-        <p>Your health is our priority. Book your appointment and experience compassionate, expert care for your family.</p>
-      </div>
-      <div class="hours">
-        MON–FRI · 08:00–18:00<br>
-        SAT · 09:00–16:00<br>
-        EMERGENCY · 24/7/365
-      </div>
-    </div>
-    <form class="appt-form" onsubmit="event.preventDefault(); this.querySelector('.form-note').textContent='Thank you! We will confirm your appointment by phone or WhatsApp shortly.'; this.querySelector('.form-note').style.color='var(--teal-dark)';">
-      <div class="form-row">
-        <div class="field">
-          <label>Full name</label>
-          <input type="text" placeholder="Your name" required>
+    <div class="appt-section">
+      <div class="appt-side">
+        <div>
+          <div class="eyebrow">Book a Visit</div>
+          <h2>Easy appointment booking</h2>
+          <p>Your health is our priority. Book your appointment and experience compassionate, expert care for your family.</p>
         </div>
-        <div class="field">
-          <label>Phone number</label>
-          <input type="tel" placeholder="09136929445" required>
+        <div class="hours">
+          MON–FRI · 08:00–18:00<br>
+          SAT · 09:00–16:00<br>
+          EMERGENCY · 24/7/365
         </div>
       </div>
-      <div class="form-row">
-        <div class="field">
-          <label>Service needed</label>
-          <select required>
-            <option value="">Select service</option>
-            <option>Pediatrics</option>
-            <option>Maternity Care</option>
-            <option>Emergency</option>
-            <option>General Medicine</option>
-            <option>Laboratory</option>
-            <option>Pharmacy Consultation</option>
-          </select>
+      
+      <form class="appt-form" onsubmit="event.preventDefault(); this.querySelector('.form-note').textContent='Thank you! We will confirm your appointment by phone or WhatsApp shortly.'; this.querySelector('.form-note').style.color='var(--teal-dark)';">
+        <div class="form-row">
+          <div class="field">
+            <label>Full name</label>
+            <input type="text" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label>Phone number</label>
+            <input type="tel" placeholder="09136929445" required>
+          </div>
         </div>
-        <div class="field">
-          <label>Preferred date</label>
-          <input type="date" required>
+        <div class="form-row">
+          <div class="field">
+            <label>Service needed</label>
+            <select required>
+              <option value="">Select service</option>
+              <option>Pediatrics</option>
+              <option>Maternity Care</option>
+              <option>Emergency</option>
+              <option>General Medicine</option>
+              <option>Laboratory</option>
+              <option>Pharmacy Consultation</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Preferred date</label>
+            <input type="date" required>
+          </div>
         </div>
-      </div>
-      <div class="form-row full">
-        <div class="field">
-          <label>Tell us about your health concern (optional)</label>
-          <input type="text" placeholder="Brief description">
+        <div class="form-row full">
+          <div class="field">
+            <label>Tell us about your health concern (optional)</label>
+            <input type="text" placeholder="Brief description">
+          </div>
         </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Request Appointment</button>
-      <p class="form-note">We'll contact you to confirm. Your health is our priority.</p>
-    </form>
-  </div>
-</section>
-
-<!-- ---------- SUPPORT PATIENTS ---------- -->
-<section id="support" style="background:linear-gradient(135deg, rgba(13,148,136,0.08), rgba(6,182,212,0.08));">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Get Involved</div>
-      <h2>Support Patients Through Mirest Foundation</h2>
-    </div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:28px;">
-      <div class="care-card">
-        <div style="font-size:40px; margin-bottom:16px;">💝</div>
-        <h3>Make a Donation</h3>
-        <p>Your contribution directly helps families receive free or subsidized care. Every amount makes a difference in someone's life.</p>
-        <a href="#" style="color:var(--teal); font-weight:600; display:inline-block; margin-top:12px;">Donate Now →</a>
-      </div>
-      <div class="care-card">
-        <div style="font-size:40px; margin-bottom:16px;">🤝</div>
-        <h3>Partner With Us</h3>
-        <p>Hospitals, clinics, and healthcare professionals: partner with us for referrals, training, and collaborative care initiatives.</p>
-        <a href="#contact" style="color:var(--teal); font-weight:600; display:inline-block; margin-top:12px;">Become a Partner →</a>
-      </div>
-      <div class="care-card">
-        <div style="font-size:40px; margin-bottom:16px;">📢</div>
-        <h3>Spread the Word</h3>
-        <p>Know someone who needs quality, affordable healthcare? Share Good Shepherd Mirest with your network and help families access care.</p>
-        <a href="#" style="color:var(--teal); font-weight:600; display:inline-block; margin-top:12px;">Share Our Mission →</a>
-      </div>
+        <button type="submit" class="btn btn-primary">Request Appointment</button>
+        <p class="form-note">We'll contact you to confirm. Your health is our priority.</p>
+      </form>
     </div>
   </div>
 </section>
 
-<!-- ---------- TESTIMONIALS ---------- -->
+<!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Patient Stories</div>
       <h2>What families say after their visit</h2>
     </div>
+    
     <div class="testi-grid">
       <div class="testi-card">
         <span class="quote-mark">"</span>
@@ -991,14 +894,15 @@
   </div>
 </section>
 
-<!-- ---------- CONTACT ---------- -->
+<!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Find Us</div>
       <h2>Visit Good Shepherd Mirest Hospital</h2>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:56px; align-items:start;">
+    
+    <div class="contact-grid">
       <div class="contact-map">
         <div class="map-pin"><span></span></div>
       </div>
@@ -1024,7 +928,7 @@
   </div>
 </section>
 
-<!-- ---------- FOOTER ---------- -->
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="footer-grid">
@@ -1046,12 +950,6 @@
         <a href="#story">Our Story</a>
         <a href="#commitment">Why Choose Us</a>
         <a href="#foundation">Mirest Foundation</a>
-        <a href="#support">Support Us</a>
-      </div>
-      <div class="footer-col">
-        <h5>Hospital</h5>
-        <a href="#testimonials">Patient Stories</a>
-        <a href="#contact">Contact</a>
       </div>
       <div class="footer-col">
         <h5>Connect</h5>
@@ -1059,10 +957,11 @@
         <a href="tel:+2349136929445" style="font-weight:600; color:#2FD4A0;">09136929445</a>
       </div>
     </div>
+    
     <div class="footer-bottom">
       <span>© 2026 Good Shepherd Mirest Hospital · Your health is our priority</span>
       <div class="social-row">
-        <a href="https://facebook.com/goodshepherdmirest"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14 9V6.5a1.5 1.5 0 0 1 1.5-1.5H17V2h-2.5A4.5 4.5 0 0 0 10 6.5V9H7v3h3v10h4V12h3l1-3h-4Z" fill="#CFE3DB"/></svg></a>
+        <a href="https://facebook.com/goodshepherdmirest"><svg width="14" height="14" viewBox="0 0 24 24" fill="#CFE3DB"><path d="M14 9V6.5a1.5 1.5 0 0 1 1.5-1.5H17V2h-2.5A4.5 4.5 0 0 0 10 6.5V9H7v3h3v10h4V12h3l1-3h-4Z"/></svg></a>
         <a href="https://instagram.com/goodshepherdmirest"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#CFE3DB" stroke-width="1.6"/><circle cx="12" cy="12" r="4.5" stroke="#CFE3DB" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#CFE3DB"/></svg></a>
         <a href="https://wa.me/2349136929445"><svg width="14" height="14" viewBox="0 0 24 24" fill="#CFE3DB"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.929 1.242c-1.604.537-3.036 1.322-4.238 2.45C2.896 10.945 2 13.12 2 15.312c0 1.923.44 3.75 1.292 5.262L2 22l5.656-1.306c1.466.792 3.121 1.212 4.844 1.212 5.521 0 10-4.477 10-9.986 0-2.6-.944-5.047-2.677-6.941-1.732-1.894-4.049-3.033-6.517-3.033z"/></svg></a>
       </div>
@@ -1071,7 +970,28 @@
 </footer>
 
 <script>
-  // Mobile menu dropdown toggle
+  // Accordion toggle function
+  function toggleAccordion(button) {
+    const content = button.nextElementSibling;
+    const toggle = button.querySelector('.accordion-toggle');
+    
+    // Close other accordions in same section
+    const parent = button.closest('[id]');
+    if (parent) {
+      parent.querySelectorAll('.accordion-content.active').forEach(el => {
+        if (el !== content) {
+          el.classList.remove('active');
+          el.previousElementSibling.querySelector('.accordion-toggle').classList.remove('active');
+        }
+      });
+    }
+    
+    // Toggle current
+    content.classList.toggle('active');
+    toggle.classList.toggle('active');
+  }
+
+  // Mobile menu
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.querySelector('#mobileMenu');
   
@@ -1080,21 +1000,19 @@
     mobileMenu?.classList.toggle('active');
   });
   
-  // Close mobile menu when item is clicked
   document.querySelectorAll('#mobileMenu a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu?.classList.remove('active');
     });
   });
   
-  // Close mobile menu when clicking outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.hamburger') && !e.target.closest('#mobileMenu')) {
       mobileMenu?.classList.remove('active');
     }
   });
 
-  // Smooth scroll for anchor links
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -1106,7 +1024,7 @@
     });
   });
 
-  // Sticky header effect
+  // Sticky header
   const header = document.querySelector('header');
   window.addEventListener('scroll', () => {
     if(window.scrollY > 40) {

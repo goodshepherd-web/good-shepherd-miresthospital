@@ -82,6 +82,7 @@
     letter-spacing:-0.02em;
   }
   .logo svg{width:26px; height:26px;}
+  .logo img{width:28px; height:28px; border-radius:4px; object-fit:contain;}
   .nav-links{
     display:flex; align-items:center; gap:34px;
     font-size:14.5px; font-weight:500;
@@ -129,6 +130,38 @@
   .btn-coral:hover{background:#cf4a33; transform:translateY(-2px);}
   .hamburger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
   .hamburger span{width:24px; height:2px; background:var(--ink); display:block;}
+  
+  /* Mobile Menu Dropdown */
+  .mobile-menu-dropdown{
+    display:none;
+    position:absolute;
+    top:60px;
+    right:16px;
+    background:var(--paper-2);
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    min-width:200px;
+    box-shadow:0 8px 24px rgba(14,42,34,0.15);
+    z-index:99;
+    flex-direction:column;
+  }
+  .mobile-menu-dropdown.active{
+    display:flex;
+  }
+  .mobile-menu-dropdown a{
+    padding:12px 16px;
+    border-bottom:1px solid #f3f4f6;
+    font-size:14px;
+    color:var(--ink);
+    transition:background .2s;
+  }
+  .mobile-menu-dropdown a:last-child{
+    border-bottom:none;
+  }
+  .mobile-menu-dropdown a:hover{
+    background:#f9fafb;
+    color:var(--teal);
+  }
 
   /* ---------- HERO ---------- */
   .hero{
@@ -462,9 +495,31 @@
   @media(max-width:768px){
     .wrap{padding:0 20px;}
     section{padding:60px 0;}
-    .nav{padding:16px 20px; flex-wrap:wrap;}
+    .nav{padding:16px 20px; flex-wrap:wrap; position:relative;}
     .hamburger{display:flex;}
     .nav-links, .nav-right{display:none;}
+    .logo{font-size:15px;}
+    .logo span{font-size:10px;}
+    .logo img{width:24px; height:24px;}
+    
+    /* Mobile menu dropdown positioning */
+    #mobileMenu{position:fixed; top:60px; right:12px; left:auto; width:calc(100% - 24px); max-width:280px;}
+    
+    /* Commitment section - more compact on mobile */
+    #commitment > .wrap > div{
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+    #commitment > .wrap > div > div{
+      padding:16px;
+    }
+    #commitment > .wrap > div > div h4{
+      font-size:14px;
+    }
+    #commitment > .wrap > div > div p{
+      font-size:12px;
+    }
+    
     .hero-grid, #care .wrap, #appointment .wrap, #contact .wrap, 
     #story .wrap > div, #foundation .wrap > div {
       grid-template-columns:1fr;
@@ -472,7 +527,9 @@
     }
     .hero h1{font-size:36px;}
     .hero-visual{aspect-ratio:1;}
-    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .stats-grid{grid-template-columns:repeat(2,1fr); gap:16px;}
+    .stat .num{font-size:28px;}
+    .stat .label{font-size:12px;}
     .care-cards{grid-template-columns:1fr;}
     .section-head h2{font-size:32px;}
     .footer-grid{grid-template-columns:1fr; gap:24px;}
@@ -480,6 +537,31 @@
     .appt-form{padding:24px;}
     .form-row{grid-template-columns:1fr;}
     .testi-grid{grid-template-columns:1fr;}
+    .doctors-grid{grid-template-columns:1fr;}
+  }
+  
+  @media(max-width:480px){
+    .wrap{padding:0 16px;}
+    section{padding:48px 0;}
+    .logo span strong{display:none;}
+    .logo span span{display:none;}
+    .emergency-tag{display:none;}
+    
+    /* Even more compact on small phones */
+    #commitment > .wrap > div{
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+    #commitment > .wrap > div > div{
+      padding:12px;
+    }
+    
+    .hero h1{font-size:32px;}
+    .stats-grid{grid-template-columns:1fr; gap:12px;}
+    .stat .num{font-size:24px;}
+    .stat .label{font-size:11px;}
+    .section-head h2{font-size:28px;}
+    .btn{padding:10px 18px; font-size:13px;}
   }
 </style>
 </head>
@@ -489,8 +571,12 @@
 <header>
   <div class="nav">
     <a href="#" class="logo">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="#0d9488"/></svg>
-      SHEPHERD
+      <svg viewBox="0 0 24 24" fill="none" style="display:none;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="#0d9488"/></svg>
+      <img src="logo.png" alt="Hospital Logo" style="width:28px; height:28px; object-fit:contain;">
+      <span style="display:flex; flex-direction:column; line-height:1.2;">
+        <strong>GOOD SHEPHERD</strong>
+        <span style="font-size:11px; font-weight:500; opacity:0.8;">MIREST HOSPITAL</span>
+      </span>
     </a>
     <nav class="nav-links">
       <a href="#care">Services</a>
@@ -508,6 +594,17 @@
       <a href="tel:+2349136929445" class="btn btn-primary">Call Us</a>
     </div>
     <button class="hamburger"><span></span><span></span><span></span></button>
+    
+    <!-- Mobile Menu Dropdown -->
+    <div class="mobile-menu-dropdown" id="mobileMenu">
+      <a href="#care">Services</a>
+      <a href="#story">Our Story</a>
+      <a href="#commitment">Why Us</a>
+      <a href="#doctors">Team</a>
+      <a href="#foundation">Foundation</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+2349136929445">📱 Call Us</a>
+    </div>
   </div>
 </header>
 
@@ -528,7 +625,7 @@
           <div class="mono">Dr. Oluebube Okoye</div>
           <div class="big-num">10,000+</div>
           <div style="font-size:13px; color:#6b7280; margin-top:4px;">Children Cared For</div>
-          <div style="font-size:12px; color:#9ca3af; margin-top:8px;">Medical Doctor & Pharmacist<br>12+ Years Experience</div>
+          <div style="font-size:12px; color:#9ca3af; margin-top:8px;">Medical Doctor & Pharmacist<br>20+ Years Experience</div>
         </div>
       </div>
     </div>
@@ -548,7 +645,7 @@
         <div class="label">Children Cared For</div>
       </div>
       <div class="stat">
-        <div class="num">12+</div>
+        <div class="num">20+</div>
         <div class="label">Years Experience</div>
       </div>
       <div class="stat">
@@ -560,42 +657,42 @@
 </div>
 
 <!-- ---------- OUR COMMITMENT ---------- -->
-<section id="commitment" style="background:linear-gradient(135deg, rgba(13,148,136,0.08), rgba(6,182,212,0.08));">
+<section id="commitment">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Our Promise</div>
-      <h2>Why Choose Good Shepherd Mirest Hospital</h2>
+      <h2>Why Choose Good Shepherd Mirest</h2>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:28px;">
-      <div class="care-card" style="border:1.5px solid var(--teal); background:rgba(255,255,255,0.98);">
-        <div style="font-size:40px; margin-bottom:16px;">💚</div>
-        <h3 style="color:var(--teal); margin-bottom:10px;">Compassionate Care</h3>
-        <p>We treat you like family. Every patient is treated with dignity and respect. Your comfort and wellbeing matter to us.</p>
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
+      <div style="padding:20px;">
+        <div style="font-size:32px; margin-bottom:12px;">💚</div>
+        <h4 style="color:var(--ink); margin-bottom:8px; font-size:15px;">Compassionate Care</h4>
+        <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">We treat you like family. Every patient deserves dignity and respect.</p>
       </div>
-      <div class="care-card" style="border:1.5px solid var(--teal); background:rgba(255,255,255,0.98);">
-        <div style="font-size:40px; margin-bottom:16px;">⭐</div>
-        <h3 style="color:var(--teal); margin-bottom:10px;">Proven Excellence</h3>
-        <p>10,000+ children thriving. 2,600+ families trusted us. Dr. Okoye's 12+ years of expertise delivering results.</p>
+      <div style="padding:20px;">
+        <div style="font-size:32px; margin-bottom:12px;">⭐</div>
+        <h4 style="color:var(--ink); margin-bottom:8px; font-size:15px;">Proven Excellence</h4>
+        <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">10,000+ children thriving. 2,600+ families trust us.</p>
       </div>
-      <div class="care-card" style="border:1.5px solid var(--teal); background:rgba(255,255,255,0.98);">
-        <div style="font-size:40px; margin-bottom:16px;">💰</div>
-        <h3 style="color:var(--teal); margin-bottom:10px;">Affordable Access</h3>
-        <p>Premium care at prices families can afford. Flexible payments. No one is turned away because they lack money.</p>
+      <div style="padding:20px;">
+        <div style="font-size:32px; margin-bottom:12px;">💰</div>
+        <h4 style="color:var(--ink); margin-bottom:8px; font-size:15px;">Affordable Access</h4>
+        <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Premium care at prices families can afford. No one turned away.</p>
       </div>
-      <div class="care-card" style="border:1.5px solid var(--teal); background:rgba(255,255,255,0.98);">
-        <div style="font-size:40px; margin-bottom:16px;">🏥</div>
-        <h3 style="color:var(--teal); margin-bottom:10px;">Modern Facilities</h3>
-        <p>Clean, well-equipped hospital. Comfortable environment. Latest technology. Every detail designed for your safety.</p>
+      <div style="padding:20px;">
+        <div style="font-size:32px; margin-bottom:12px;">🏥</div>
+        <h4 style="color:var(--ink); margin-bottom:8px; font-size:15px;">Modern Facilities</h4>
+        <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Clean, equipped, and comfortable. Your safety is priority.</p>
       </div>
-      <div class="care-card" style="border:1.5px solid var(--teal); background:rgba(255,255,255,0.98);">
-        <div style="font-size:40px; margin-bottom:16px;">🤝</div>
-        <h3 style="color:var(--teal); margin-bottom:10px;">Support for All</h3>
-        <p>Mirest Foundation provides free care for families in need. Healthcare access should never be limited by finances.</p>
+      <div style="padding:20px;">
+        <div style="font-size:32px; margin-bottom:12px;">🤝</div>
+        <h4 style="color:var(--ink); margin-bottom:8px; font-size:15px;">Support for All</h4>
+        <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Mirest Foundation provides free care for families in need.</p>
       </div>
-      <div class="care-card" style="border:1.5px solid var(--teal); background:rgba(255,255,255,0.98);">
-        <div style="font-size:40px; margin-bottom:16px;">🌍</div>
-        <h3 style="color:var(--teal); margin-bottom:10px;">Community Impact</h3>
-        <p>Serving Ekwulobia and beyond. Building a healthier community. One family at a time. Making a real difference.</p>
+      <div style="padding:20px;">
+        <div style="font-size:32px; margin-bottom:12px;">🌍</div>
+        <h4 style="color:var(--ink); margin-bottom:8px; font-size:15px;">Community First</h4>
+        <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Serving Ekwulobia and beyond. Building healthier community.</p>
       </div>
     </div>
   </div>
@@ -637,7 +734,7 @@
           <div style="font-family:'Space Grotesk', sans-serif; font-size:22px; font-weight:700; margin-bottom:4px; color:var(--ink);">Dr. Oluebube Okoye</div>
           <div style="font-size:13px; color:#6b7280; margin-bottom:12px;">Medical Doctor + Registered Pharmacist</div>
           <div style="font-size:12px; color:#6b7280; line-height:1.6;">
-            ✓ 12+ years healthcare experience<br>
+            ✓ 20+ years healthcare experience<br>
             ✓ 10,000+ children cared for<br>
             ✓ 2,600+ families served<br>
             ✓ PracticeLink Award recipient 2026
@@ -751,7 +848,7 @@
         <div class="doctor-avatar" style="background:linear-gradient(135deg, #0f766e, #0d9488);">OO</div>
         <h3>Dr. Oluebube Okoye</h3>
         <span class="specialty">FOUNDER & PHYSICIAN</span>
-        <p>Medical Doctor & Registered Pharmacist. 12+ years of healthcare excellence in Nigeria.</p>
+        <p>Medical Doctor & Registered Pharmacist. 20+ years of healthcare excellence in Nigeria.</p>
         <span class="doctor-book">Learn More →</span>
       </div>
       <div class="doctor-card">
@@ -974,11 +1071,27 @@
 </footer>
 
 <script>
-  // Mobile menu toggle
+  // Mobile menu dropdown toggle
   const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-  hamburger?.addEventListener('click', () => {
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  const mobileMenu = document.querySelector('#mobileMenu');
+  
+  hamburger?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu?.classList.toggle('active');
+  });
+  
+  // Close mobile menu when item is clicked
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.remove('active');
+    });
+  });
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.hamburger') && !e.target.closest('#mobileMenu')) {
+      mobileMenu?.classList.remove('active');
+    }
   });
 
   // Smooth scroll for anchor links
